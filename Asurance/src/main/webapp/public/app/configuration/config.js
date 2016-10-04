@@ -15,15 +15,15 @@
                 templateUrl: "public/app/templates/tabs.jsp",
               
             };
-            var vehicleObj = {
-            		url: '/vehicles',
-                templateUrl: "public/app/templates/vehicleList.jsp"
+            var retrieveQuoteObj = {
+            		url: '/retrieve-quote',
+                templateUrl: "public/app/templates/retrieve-quote.jsp"
                 
             };
             $stateProvider.state("login", loginObj);
             $stateProvider.state("register", registerObj);
             $stateProvider.state("quote", quoteObj);
-            $stateProvider.state("vehicles", vehicleObj);
+            $stateProvider.state("retrieveQuote", retrieveQuoteObj);
     }]).run(["$state", function ($state) {
             $state.go("quote");
     }])

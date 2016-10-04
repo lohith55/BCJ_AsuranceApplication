@@ -24,7 +24,7 @@
   <div class="form-group">
         <label class="col-sm-3 control-label" for="amount">Total Amount</label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="amount" id="card-holder-name" value="${newQuote.getQuoteAmount() }">
+          <input type="text" class="form-control" name="amount" id="card-holder-name" value="${newQuote.getQuoteAmount() }" readonly>
         </div>
       </div>
       <div class="form-group">

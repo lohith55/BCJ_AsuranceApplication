@@ -58,19 +58,9 @@ hr.style15 {
 	</nav>
 	<div id="navbar"></div>
 	<div class="container" style="margin-top: 86px;">
-		<span style="color: #ffb84d; font-size: 25; margin-left: 25px;"><strong>Here's
+		<span style="color: #ffb84d; font-size: 35px;"><strong>Here's
 				your quote!</strong></span>
-		<nav class="navbar navbar-default" style="background-color: #e6ffe6;">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<!--  <a class="navbar-brand" href="#"></a>-->
-					<ul class="nav nav-tabs nav-justified">
-						<li role="presentation" class="active"><a href="">Basic</a></li>
-						<li role="presentation"><a href="">Premium</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		
 <form method="post" action="payment">
 		<label style="font-size: 35px;">Quote for 6 Months</label><br> <label
 			id="qtAmt${quote.getQuoteAmount() }" class="quoteAmount" name="quoteAmount"
@@ -79,17 +69,13 @@ hr.style15 {
 		<hr class="style13" style="margin-top: 25px;">
 
 		<div class="row">
-			<div class="btn-group btn-group-lg" style="margin-left: 40px;">
-				<input type="submit" class="btn btn-md btn-success btn-block"
-					value="Continue to Buy">
-			</div>
-
-			<!-- <div class="btn-group btn-group-lg" style="margin-left: 200px;">
-			<input type="submit" class="btn btn-lg btn-success btn-block"
-				value="Continue to Buy">
-		</div> -->
+			<div class="btn-group btn-group-lg">
+				<input type="submit" class="btn btn-md btn-primary"
+					value="Continue to Buy" id="submit">
 		</div>
-		<h3 style="margin-left: 25px; color: #3884C9;">
+
+		</div>
+		<h3 style="color: #3884C9;">
 			<Strong>Policy Coverages</Strong>
 		</h3>
 
@@ -850,15 +836,6 @@ hr.style15 {
 
 		<hr class="style14">
 
-<!-- <input type="text" id="liabilityInput" name="liability" style="border: none; visibility: hidden;">
-<input type="text" id="unInsuredInput" name="unInsured" style="border: none; visibility: hidden;">
-<input type="text" id="underInsuredInput" name="underInsured"   style="border: none; visibility: hidden;">
-<input type="text" id="unInsuredPDInput" name="unInsuredPD" style="border: none; visibility: hidden;">
-<input type="text" id="injuryProtectionInput" name="injuryProtection"  style="border: none; visibility: hidden;">
-<input type="text" id="comprehensiveInput" name="comprehensive"  style="border: none; visibility: hidden;">
-<input type="text" id="collisionInput" name="collision"  style="border: none; visibility: hidden;">
-<input type="text" id="rentalInput" name="rental"  style="border: none; visibility: hidden;">
-<input type="text" id="roadSideInput" name="roadSide"  style="border: none; visibility: hidden;"> -->
 
 		<div class="btn-group btn-group-lg">
 				<input type="submit" class="btn btn-md btn-primary"

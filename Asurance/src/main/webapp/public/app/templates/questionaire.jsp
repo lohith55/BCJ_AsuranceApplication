@@ -74,10 +74,10 @@ li {
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Employee Status</label>
 				<div class="col-sm-4">
-					<select class="form-control" name="employment" required>
+					<select class="form-control" name="employment" id="empStatus" required>
 						<option value="">Select one</option>
 						<option value="Student">Student</option>
-						<option value="Employed">Employed</option>
+						<option value="Employed">Employed</option> 
 						<option value="SelfEmployed">Self-Employed</option>
 						<option value="UnEmployed">Unemployed</option>
 						<option value="Retired">Retired</option>
@@ -91,7 +91,7 @@ li {
 				<label class="col-sm-3 control-label">Social Security Number<br>
 				<small>(required for most accurate quote)</small></label>
 				<div class="col-sm-4">
-					<input class="form-control" name="ssn" maxlength="9" type="text"
+					<input class="form-control" id="ssn" name="ssn" maxlength="9" type="text"
 						 />
 				</div>
 
@@ -243,6 +243,13 @@ li {
 			    	$('#navbar').show();
 			    }
 			});
+		 $("#empStatus").change(function(){
+			var selected = $("#empStatus").val();
+			if(selected == "Employed")
+				$("#ssn").prop('required',true);
+			else
+				$("#ssn").prop('required',false);
+		 });
   
 });
 	</script>
