@@ -1,5 +1,6 @@
 
-<% String failure = (String) session.getAttribute("message"); %>
+<% String failure = (String) session.getAttribute("message"); 
+    String saved = (String) session.getAttribute("saved");%>
 
 <div class="container">
 	<div class="row">
@@ -10,7 +11,10 @@
 
 			<%if(failure != null) {%><div id="wrongCredential"
 				style="color: white; font-size: 20px;"><%=failure %></div>
-			<%session.invalidate();} %>
+			<%session.invalidate();}
+				if(saved != null){%><div id="wrongCredential"
+				style="color: white; font-size: 20px;"><%=saved %></div>
+				<%session.invalidate();} %>
 
 			<form role="form" name="registerPage" ng-controller="startPageCtrl"
 				action="getVehicles" method="post">

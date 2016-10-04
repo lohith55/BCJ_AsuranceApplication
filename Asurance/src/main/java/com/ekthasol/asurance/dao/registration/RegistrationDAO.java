@@ -20,7 +20,6 @@ public class RegistrationDAO {
 		Session session = sessionFactory.openSession();
 		try {
 			address_id = (Integer) session.save(address);
-			customer.setAddressID(address_id);
 			customer_id = (Integer) session.save(customer);
 			if(customer_id > 0)
 				status = true;

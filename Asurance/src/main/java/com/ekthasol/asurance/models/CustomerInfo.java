@@ -1,22 +1,64 @@
 package com.ekthasol.asurance.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name = "customer_info", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
 public class CustomerInfo {
 	
-	private String gender;
-	private String marital;
-	private String education;
-	private String employement;
-	private String ssn;
-	private String residence;
-	private String moved;
-	private String licenseStatus;
-	private String years;
-	private String licenseNumber;
-	private String primaryEmail;
-	private String residents;
-	private String claims;
-	private String tickets;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", unique = true, nullable = false)
+	private int customerInfoID;
 	
+	@Column(name = "gender")
+	private String gender;
+	
+	@Column(name = "marital")
+	private String marital;
+
+	@Column(name = "education")
+	private String education;
+
+	@Column(name = "employment")
+	private String employment;
+
+	@Column(name = "ssn")
+	private String ssn;
+
+	/*@Column(name = "residence")
+	private String residence;
+
+	@Column(name = "moved")
+	private String moved;*/
+
+	@Column(name = "licenseNumber")
+	private String licenseNumber;
+
+	@Column(name = "primaryEmail")
+	private String primaryEmail;
+
+	@Column(name = "residents")
+	private int residents;
+
+	@Column(name = "claims")
+	private int claims;
+
+	@Column(name = "tickets")
+	private int tickets;
+	
+	public int getCustomerInfoID() {
+		return customerInfoID;
+	}
+	public void setCustomerInfoID(int customerInfoID) {
+		this.customerInfoID = customerInfoID;
+	}
 	public String getGender() {
 		return gender;
 	}
@@ -35,11 +77,12 @@ public class CustomerInfo {
 	public void setEducation(String education) {
 		this.education = education;
 	}
-	public String getEmployement() {
-		return employement;
+	
+	public String getEmployment() {
+		return employment;
 	}
-	public void setEmployement(String employement) {
-		this.employement = employement;
+	public void setEmployment(String employment) {
+		this.employment = employment;
 	}
 	public String getSsn() {
 		return ssn;
@@ -47,7 +90,7 @@ public class CustomerInfo {
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
-	public String getResidence() {
+	/*public String getResidence() {
 		return residence;
 	}
 	public void setResidence(String residence) {
@@ -58,19 +101,7 @@ public class CustomerInfo {
 	}
 	public void setMoved(String moved) {
 		this.moved = moved;
-	}
-	public String getLicenseStatus() {
-		return licenseStatus;
-	}
-	public void setLicenseStatus(String licenseStatus) {
-		this.licenseStatus = licenseStatus;
-	}
-	public String getYears() {
-		return years;
-	}
-	public void setYears(String years) {
-		this.years = years;
-	}
+	}*/
 	public String getLicenseNumber() {
 		return licenseNumber;
 	}
@@ -83,34 +114,31 @@ public class CustomerInfo {
 	public void setPrimaryEmail(String primaryEmail) {
 		this.primaryEmail = primaryEmail;
 	}
-	public String getResidents() {
+	public int getResidents() {
 		return residents;
 	}
-	public void setResidents(String residents) {
+	public void setResidents(int residents) {
 		this.residents = residents;
 	}
-	public String getClaims() {
+	public int getClaims() {
 		return claims;
 	}
-	public void setClaims(String claims) {
+	public void setClaims(int claims) {
 		this.claims = claims;
 	}
-	public String getTickets() {
+	public int getTickets() {
 		return tickets;
 	}
-	public void setTickets(String tickets) {
+	public void setTickets(int tickets) {
 		this.tickets = tickets;
 	}
 	@Override
 	public String toString() {
-		return "CustomerInfo [gender=" + gender + ", marital=" + marital + ", education=" + education + ", employement="
-				+ employement + ", ssn=" + ssn + ", residence=" + residence + ", moved=" + moved + ", licenseStatus="
-				+ licenseStatus + ", years=" + years + ", licenseNumber=" + licenseNumber + ", primaryEmail="
-				+ primaryEmail + ", residents=" + residents + ", claims=" + claims + ", tickets=" + tickets + "]";
+		return "CustomerInfo [customerInfoID=" + customerInfoID + ", gender=" + gender + ", marital=" + marital
+				+ ", education=" + education + ", employment=" + employment + ", ssn=" + ssn + ", licenseNumber="
+				+ licenseNumber + ", primaryEmail=" + primaryEmail + ", residents=" + residents + ", claims=" + claims
+				+ ", tickets=" + tickets + "]";
 	}
-	
-	
-	
 	
 	
 }

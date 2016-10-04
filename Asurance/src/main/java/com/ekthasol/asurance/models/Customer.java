@@ -42,8 +42,6 @@ public class Customer {
 	private String policyNumber;
 	@Column(name = "EMAIL")
 	private String email;
-	@Column(name = "ADDRESS_ID")
-	private int addressID;
 	@Column(name = "PASSWORD")
 	private String password;
 
@@ -53,14 +51,6 @@ public class Customer {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public int getAddressID() {
-		return addressID;
-	}
-
-	public void setAddressID(int addressID) {
-		this.addressID = addressID;
 	}
 
 	public String getPolicyNumber() {

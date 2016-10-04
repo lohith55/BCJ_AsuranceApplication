@@ -19,5 +19,8 @@
 		class="com.ekthasol.asurance.dao.login.LoginDAO"></bean>
 	<bean id="paymentService"
 		class="com.ekthasol.asurance.service.payment.PaymentService"></bean>
-		
+	<bean id="saveQuoteService"
+		class="com.ekthasol.asurance.service.quotegeneration.SaveQuoteService"></bean>
+	<bean id="saveQuoteDAO"
+		class="com.ekthasol.asurance.dao.quotegeneration.SaveQuoteDAO"></bean>
 	</beans>

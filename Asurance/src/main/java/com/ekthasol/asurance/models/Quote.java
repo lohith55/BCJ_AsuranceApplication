@@ -2,34 +2,72 @@ package com.ekthasol.asurance.models;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name = "quote", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
 public class Quote {
 
-	
-	private String quoteId;
-	private double quoteAmount;
-	@Override
-	public String toString() {
-		return "Quote [quoteId=" + quoteId + ", quoteAmount=" + quoteAmount + ", perMonth=" + perMonth + ", liability="
-				+ liability + ", unInsured=" + unInsured + ", underInsured=" + underInsured + ", unInsuredPD="
-				+ unInsuredPD + ", injuryProtection=" + injuryProtection + ", comprehensive=" + comprehensive
-				+ ", collision=" + collision + ", rental=" + rental + ", roadSide=" + roadSide + ", vin=" + vin
-				+ ", vehicleMakeYear=" + vehicleMakeYear + ", driverList=" + driverList + ", ssn=" + ssn
-				+ ", education=" + education + "]";
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", unique = true, nullable = false)
+	private int id;
+
+	public int getId() {
+		return id;
 	}
-	private double perMonth;
+	public void setId(int id) {
+		this.id = id;
+	}
+	@Column(name = "quoteID")
+	private String quoteId;
+
+	@Column(name = "quoteAmount")
+	private double quoteAmount;
+
+	@Column(name = "liability")
 	private double liability;
+
+	@Column(name = "unInsured")
 	private double unInsured;
+
+	@Column(name = "underInsured")
 	private double underInsured;
+
+	@Column(name = "unInsuredPD")
 	private double unInsuredPD;
+
+	@Column(name = "injuryProtection")
 	private double injuryProtection;
+
+	@Column(name = "comprehensive")
 	private double comprehensive;
+
+	@Column(name = "collision")
 	private double collision;
+
+	@Column(name = "rental")
 	private double rental;
+
+	@Column(name = "roadSide")
 	private double roadSide;
+	
+	@Transient
 	private String vin;
+	@Transient
 	private String vehicleMakeYear;
+	@Transient
 	private List<String> driverList;	
+	@Transient
 	private String ssn;
+	@Transient
 	private String education;
 	
 	
@@ -93,12 +131,6 @@ public class Quote {
 	public void setQuoteAmount(double quoteAmount) {
 		this.quoteAmount = quoteAmount;
 	}
-	public double getPerMonth() {
-		return perMonth;
-	}
-	public void setPerMonth(double perMonth) {
-		this.perMonth = perMonth;
-	}
 	public double getLiability() {
 		return liability;
 	}
@@ -134,6 +166,14 @@ public class Quote {
 	}
 	public void setEducation(String education) {
 		this.education = education;
+	}
+	@Override
+	public String toString() {
+		return "Quote [quoteId=" + quoteId + ", quoteAmount=" + quoteAmount + ", liability=" + liability
+				+ ", unInsured=" + unInsured + ", underInsured=" + underInsured + ", unInsuredPD=" + unInsuredPD
+				+ ", injuryProtection=" + injuryProtection + ", comprehensive=" + comprehensive + ", collision="
+				+ collision + ", rental=" + rental + ", roadSide=" + roadSide + ", vin=" + vin + ", vehicleMakeYear="
+				+ vehicleMakeYear + ", driverList=" + driverList + ", ssn=" + ssn + ", education=" + education + "]";
 	}
 	
 	

@@ -61,7 +61,7 @@ hr.style15 {
 		<span style="color: #ffb84d; font-size: 35px;"><strong>Here's
 				your quote!</strong></span>
 		
-<form method="post" action="payment">
+<form method="post" action="saveQuote">
 		<label style="font-size: 35px;">Quote for 6 Months</label><br> <label
 			id="qtAmt${quote.getQuoteAmount() }" class="quoteAmount" name="quoteAmount"
 			style="font-size: 35px;">$${quote.getQuoteAmount() }</label>
@@ -857,7 +857,7 @@ hr.style15 {
 			</div>
 			<div class="col-sm-4">
 				<input type="submit" class="btn btn-md btn-primary"
-					value="Save & Continue" >
+					value="Save & Exit" >
 			</div>
 
 		</div>
@@ -884,6 +884,14 @@ hr.style15 {
 								}
 							});
 						});
+		
+		/* $(document)
+		.on('click', '#btnDelete', function(){
+			$('#updateForm').attr('action', '/payment');
+		})
+		.on('click', '#btnSave', function(){
+			$('#updateForm').attr('action', '/payment');
+		}); */
 	</script>
 
 	<script src="public/app/js/premium.js"></script> 

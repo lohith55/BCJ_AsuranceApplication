@@ -36,6 +36,18 @@
 				<value>
 					com.ekthasol.asurance.models.Address
 				</value>
+				<value>
+					com.ekthasol.asurance.models.Vehicle
+				</value>
+				<value>
+					com.ekthasol.asurance.models.CustomerInfo
+				</value>
+				<value>
+					com.ekthasol.asurance.models.Quote
+				</value>
+				<value>
+					com.ekthasol.asurance.models.FullDetails
+				</value>
 			</list>
 		</property>
 

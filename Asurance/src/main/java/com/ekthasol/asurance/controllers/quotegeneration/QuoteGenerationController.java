@@ -18,6 +18,7 @@ import com.ekthasol.asurance.models.CustomerInfo;
 import com.ekthasol.asurance.models.Quote;
 import com.ekthasol.asurance.models.Vehicle;
 import com.ekthasol.asurance.service.quotegeneration.QuoteGenerationService;
+import com.ekthasol.asurance.service.quotegeneration.SaveQuoteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
@@ -26,6 +27,9 @@ public class QuoteGenerationController {
 
 	@Autowired
 	QuoteGenerationService quoteGenerationService;
+	
+	@Autowired
+	SaveQuoteService saveQuoteService;
 
 	/*@Autowired
 	PaymentService paymentService;*/
@@ -122,6 +126,22 @@ public class QuoteGenerationController {
 	public String goToPayments() {
 
 		return "payments";
+	}
+	
+	@RequestMapping(value = "/saveQuote", method = RequestMethod.POST)
+	public String saveQuote(HttpSession session) {
+
+		Customer customer = (Customer) session.getAttribute("customer");
+		Address address = (Address) session.getAttribute("address");
+		Vehicle vehicle = (Vehicle) session.getAttribute("selectedVehicle");
+		CustomerInfo customerInfo = (CustomerInfo) session.getAttribute("customerInfo");
+		Quote quote = (Quote) session.getAttribute("quote");
+		boolean status = saveQuoteService.saveQuote(customer, address, vehicle, quote, customerInfo);
+		if(status){
+			session.setAttribute("saved", "Details saved successfully!!!");
+			return "saveQuote";
+		}else
+			return "failure";
 	}
 	/*
 	@RequestMapping(value = "/processPayment", method = RequestMethod.POST)

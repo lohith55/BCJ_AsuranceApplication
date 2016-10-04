@@ -3,30 +3,46 @@ package com.ekthasol.asurance.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "vehicle")
+@Table(name = "vehicle", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
 public class Vehicle {
 
 	@Id
-	@Column(name = "vin")
-	private String vin;
-	public Vehicle() {
-		
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", unique = true, nullable = false)
+	private int id;
+
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Column(name = "vin")
+	private String vin;
+	
 	@Column(name = "year")
 	private String year;
+	
 	@Column(name = "make")
 	private String make;
+	
 	@Column(name = "model")
 	private String model;
-	private String isSelected;
 	
+	@Transient
+	private String isSelected;
 
 	public String getIsSelected() {
 		return isSelected;
@@ -44,6 +60,7 @@ public class Vehicle {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "a_id")
+	@Transient
 	private Address vechicleAddress;
 
 	public Address getVechicleAddress() {

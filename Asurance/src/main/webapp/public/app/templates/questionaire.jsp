@@ -103,7 +103,7 @@ li {
 
 			<hr class="line">
 
-			<h3>Residency</h3>
+			<!-- <h3>Residency</h3>
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Primary Residence </label>
@@ -126,26 +126,9 @@ li {
 						name="moved" value="no">No
 					</label>
 				</div>
-			</div>
+			</div> -->
 			<hr class="line">
 			<h3>Driving History</h3>
-
-			<div class="form-group">
-				<label class="col-sm-3 control-label">US.License Status </label>
-				<div class="col-sm-4">
-					<select class="form-control" name="licenseStatus" required>
-						<option value="Valid" selected>Valid</option>
-						<option value="Invalid">Invalid</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-sm-3 control-label">Years Licensed </label>
-				<div class="col-sm-4">
-					<input class="form-control" name="years" type="number" min="0">
-				</div>
-			</div>
 			
 			<div class="form-group">
 				<label class="col-sm-3 control-label">DL Number</label>
@@ -153,33 +136,7 @@ li {
 					<input class="form-control" name="licenseNumber" type="text" required>
 				</div>
 			</div>
-			<hr class="line">
-
-			<h3>Additional Information</h3>
-
-			<div class="form-group">
-				<label class="col-sm-3 control-label">Primary Email Address<br>
-				<small>(We will NOT sell your email address.)</small></label>
-				<div class="col-sm-4">
-					<input class="form-control" name="emailPrimary" type="email"
-						required>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-sm-3 control-label">How many residents
-					live in the home?<br>
-				<small>(Including drivers on quote,excluded drivers,children
-						and roommates.)</small>
-				</label>
-				<div class="col-sm-4">
-					<input class="form-control" name="residents" type="number" min="1">
-
-				</div>
-			</div>
-			<hr class="line">
-			<h3>Accidents, Violations and Claims</h3>
-			<p>As a driver you had any(regardless of fault):</p>
+			<h4>Accidents, Violations and Claims</h4>
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Total accidents, claims or
@@ -199,6 +156,30 @@ li {
 					<input class="form-control" name="tickets" type="number" required min="0">
 				</div>
 			</div>
+			<hr class="line">
+
+			<h3>Additional Information</h3>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Primary Email Address<br>
+				<small>(We will NOT sell your email address.)</small></label>
+				<div class="col-sm-4">
+					<input class="form-control" name="primaryEmail" type="email"
+						required>
+				</div>
+			</div>
+
+			<!-- <div class="form-group">
+				<label class="col-sm-3 control-label">How many residents
+					live in the home?<br>
+				<small>(Including drivers on quote,excluded drivers,children
+						and roommates.)</small>
+				</label>
+				<div class="col-sm-4">
+					<input class="form-control" name="residents" type="number" min="1">
+
+				</div>
+			</div> -->
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-sm-4">
