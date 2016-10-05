@@ -18,28 +18,19 @@ public class FullDetails {
 	private int ID;
 
 	@Column(name = "CUSTOMER_ID")
-	private int customerID;
-
-	public FullDetails(int customerID, int addressID, int customerInfoID, int vehicleID, int quoteID) {
-		super();
-		this.customerID = customerID;
-		this.addressID = addressID;
-		this.customerInfoID = customerInfoID;
-		this.vehicleID = vehicleID;
-		this.quoteID = quoteID;
-	}
+	private Customer customerID;
 
 	@Column(name = "ADDRESS_ID")
-	private int addressID;
+	private Address addressID;
 
 	@Column(name = "CUSTOMER_INFO_ID")
-	private int customerInfoID;
+	private CustomerInfo customerInfoID;
 
 	@Column(name = "VEHICLE_ID")
-	private int vehicleID;
+	private Vehicle vehicleID;
 
 	@Column(name = "QUOTE_ID")
-	private int quoteID;
+	private Quote quoteID;
 
 	public int getID() {
 		return ID;
@@ -49,45 +40,46 @@ public class FullDetails {
 		ID = iD;
 	}
 
-	public int getCustomerID() {
+	public Customer getCustomerID() {
 		return customerID;
 	}
 
-	public void setCustomerID(int customerID) {
+	public void setCustomerID(Customer customerID) {
 		this.customerID = customerID;
 	}
 
-	public int getAddressID() {
+	public Address getAddressID() {
 		return addressID;
 	}
 
-	public void setAddressID(int addressID) {
+	public void setAddressID(Address addressID) {
 		this.addressID = addressID;
 	}
 
-	public int getCustomerInfoID() {
+	public CustomerInfo getCustomerInfoID() {
 		return customerInfoID;
 	}
 
-	public void setCustomerInfoID(int customerInfoID) {
+	public void setCustomerInfoID(CustomerInfo customerInfoID) {
 		this.customerInfoID = customerInfoID;
 	}
 
-	public int getVehicleID() {
+	public Vehicle getVehicleID() {
 		return vehicleID;
 	}
 
-	public void setVehicleID(int vehicleID) {
+	public void setVehicleID(Vehicle vehicleID) {
 		this.vehicleID = vehicleID;
 	}
 
-	public int getQuoteID() {
+	public Quote getQuoteID() {
 		return quoteID;
 	}
 
-	public void setQuoteID(int quoteID) {
+	public void setQuoteID(Quote quoteID) {
 		this.quoteID = quoteID;
 	}
+
 	
 	
 }
