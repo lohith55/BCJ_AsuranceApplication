@@ -4,28 +4,16 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "quote", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
+@Table(name = "quote", uniqueConstraints = { @UniqueConstraint(columnNames = "quoteID") })
 public class Quote {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID", unique = true, nullable = false)
-	private int id;
-
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	@Column(name = "quoteID")
 	private String quoteId;
 

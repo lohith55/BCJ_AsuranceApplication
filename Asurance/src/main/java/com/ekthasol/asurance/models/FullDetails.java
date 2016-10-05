@@ -18,19 +18,19 @@ public class FullDetails {
 	private int ID;
 
 	@Column(name = "CUSTOMER_ID")
-	private Customer customerID;
+	private int customerID;
 
 	@Column(name = "ADDRESS_ID")
-	private Address addressID;
+	private int addressID;
 
 	@Column(name = "CUSTOMER_INFO_ID")
-	private CustomerInfo customerInfoID;
+	private int customerInfoID;
 
 	@Column(name = "VEHICLE_ID")
-	private Vehicle vehicleID;
+	private int vehicleID;
 
 	@Column(name = "QUOTE_ID")
-	private Quote quoteID;
+	private String quoteID;
 
 	public int getID() {
 		return ID;
@@ -40,43 +40,52 @@ public class FullDetails {
 		ID = iD;
 	}
 
-	public Customer getCustomerID() {
+	public int getCustomerID() {
 		return customerID;
 	}
 
-	public void setCustomerID(Customer customerID) {
+	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
 	}
 
-	public Address getAddressID() {
+	public int getAddressID() {
 		return addressID;
 	}
 
-	public void setAddressID(Address addressID) {
+	public void setAddressID(int addressID) {
 		this.addressID = addressID;
 	}
 
-	public CustomerInfo getCustomerInfoID() {
+	public int getCustomerInfoID() {
 		return customerInfoID;
 	}
 
-	public void setCustomerInfoID(CustomerInfo customerInfoID) {
+	public void setCustomerInfoID(int customerInfoID) {
 		this.customerInfoID = customerInfoID;
 	}
 
-	public Vehicle getVehicleID() {
+	public int getVehicleID() {
 		return vehicleID;
 	}
 
-	public void setVehicleID(Vehicle vehicleID) {
+	public void setVehicleID(int vehicleID) {
 		this.vehicleID = vehicleID;
 	}
 
-	public Quote getQuoteID() {
+	public String getQuoteID() {
 		return quoteID;
 	}
 
-	public void setQuoteID(Quote quoteID) {
+	public void setQuoteID(String quoteID) {
+		this.quoteID = quoteID;
+	}
+
+	public FullDetails(int customerID, int addressID, int customerInfoID, int vehicleID, String quoteID) {
+		super();
+		this.customerID = customerID;
+		this.addressID = addressID;
+		this.customerInfoID = customerInfoID;
+		this.vehicleID = vehicleID;
 		this.quoteID = quoteID;
 	}
 

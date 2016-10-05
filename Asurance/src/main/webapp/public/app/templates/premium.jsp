@@ -70,8 +70,8 @@ hr.style15 {
 
 		<div class="row">
 			<div class="btn-group btn-group-lg">
-				<input type="submit" class="btn btn-md btn-primary"
-					value="Continue to Buy" id="submit">
+				<input type="submit" class="btn btn-md btn-primary submit"
+					value="Continue to Buy">
 		</div>
 
 		</div>
@@ -101,8 +101,8 @@ hr.style15 {
 
 
 						<div class="modal-body">
-							<p>We pay the costs that youâre responsible for, up to
-								the limit you choose, as a result of an accident. If youâre
+							<p>We pay the costs that you are responsible for, up to
+								the limit you choose, as a result of an accident. If you are
 								sued, we pay for a lawyer to defend you.</p>
 							<br>
 							<hr class="style13">
@@ -206,7 +206,7 @@ hr.style15 {
 						<div class="modal-body">
 							<p>We pay for medical expenses and in some cases other
 								benefits up to the limit you choose, for you and your
-								passengers, when youâre in an accident caused by a driver
+								passengers, when you are in an accident caused by a driver
 								who has no insurance.</p>
 							<br>
 							<hr class="style13">
@@ -276,8 +276,8 @@ hr.style15 {
 						<div class="modal-body">
 							<p>We pay for medical expenses and in some cases other
 								benefits up to the limit you choose, for you and your
-								passengers, when youâre in an accident caused by a driver
-								who doesnât have enough insurance to cover these expenses.</p>
+								passengers, when you are in an accident caused by a driver
+								who doesn't have enough insurance to cover these expenses.</p>
 							<br>
 							<hr class="style13">
 							<span><strong>Coverage</strong></span> <span
@@ -420,7 +420,7 @@ hr.style15 {
 						<div class="modal-body">
 							<p>We pay for medical expenses, lost wages, and, in some
 								cases, other benefits if you are injured or killed as a result
-								of an accident, no matter whoâs at fault.</p>
+								of an accident, no matter who âs at fault.</p>
 							<br>
 							<hr class="style13">
 							<span><strong>Coverage</strong></span> <span
@@ -838,8 +838,8 @@ hr.style15 {
 
 
 		<div class="btn-group btn-group-lg">
-				<input type="submit" class="btn btn-md btn-primary"
-					value="Continue to Buy" id="submit">
+				<input type="submit" class="btn btn-md btn-primary submit"
+					value="Continue to Buy">
 		</div>
 
 
@@ -884,14 +884,6 @@ hr.style15 {
 								}
 							});
 						});
-		
-		/* $(document)
-		.on('click', '#btnDelete', function(){
-			$('#updateForm').attr('action', '/payment');
-		})
-		.on('click', '#btnSave', function(){
-			$('#updateForm').attr('action', '/payment');
-		}); */
 	</script>
 
 	<script src="public/app/js/premium.js"></script> 

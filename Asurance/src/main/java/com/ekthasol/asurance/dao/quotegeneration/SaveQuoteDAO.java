@@ -20,15 +20,15 @@ public class SaveQuoteDAO {
 	public boolean saveQuote(Customer customer,Address address,Vehicle vehicle,Quote quote,CustomerInfo customerInfo){
 		
 		
-		int addressID = 0,customerID = 0,vehicleID = 0,customerInfoID = 0, quoteID = 0,fulldetailID = 0;
+		int addressID = 0,customerID = 0,vehicleID = 0,customerInfoID = 0,fulldetailID = 0;
 		Session session = sessionFactory.openSession();
 		try {
 			addressID = (Integer) session.save(address);
 			customerID = (Integer) session.save(customer);
 			vehicleID = (Integer) session.save(vehicle);
 			customerInfoID = (Integer) session.save(customerInfo);
-			quoteID = (Integer) session.save(quote);
-			FullDetails fullDetails = new FullDetails(customerID, addressID, customerInfoID, vehicleID, quoteID);
+			session.save(quote);
+			FullDetails fullDetails = new FullDetails(customerID, addressID, customerInfoID, vehicleID, quote.getQuoteId());
 			fulldetailID = (Integer) session.save(fullDetails);
 			if(fulldetailID > 0)
 				return true;
