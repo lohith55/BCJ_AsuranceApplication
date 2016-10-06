@@ -10,11 +10,11 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "quote", uniqueConstraints = { @UniqueConstraint(columnNames = "quoteID") })
+@Table(name = "quote", uniqueConstraints = { @UniqueConstraint(columnNames = "QUOTE_ID") })
 public class Quote {
 
 	@Id
-	@Column(name = "quoteID")
+	@Column(name = "QUOTE_ID")
 	private String quoteId;
 
 	@Column(name = "quoteAmount")

@@ -9,12 +9,12 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "customer", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
+@Table(name = "customer", uniqueConstraints = { @UniqueConstraint(columnNames = "CUSTOMER_ID") })
 public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID", unique = true, nullable = false)
+	@Column(name = "CUSTOMER_ID", unique = true, nullable = false)
 	private int id;
 
 	/**
@@ -92,5 +92,13 @@ public class Customer {
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth="
+				+ dateOfBirth + ", policyNumber=" + policyNumber + ", email=" + email + ", password=" + password + "]";
+	}
+	
+	
 
 }

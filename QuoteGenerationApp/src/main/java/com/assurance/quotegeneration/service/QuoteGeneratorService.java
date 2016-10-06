@@ -96,8 +96,10 @@ public class QuoteGeneratorService {
 		
 //Start-Added by CM
 		String ssn = customerDetails.getSsn();
-		int creditScore = creditHistoryClient.getCreditScore(ssn);
-		customerDroolData.setCreditScore(creditScore);
+		if(ssn != null){
+			int creditScore = creditHistoryClient.getCreditScore(ssn);
+			customerDroolData.setCreditScore(creditScore);			
+		}
 //End		
 		return customerDroolData;
 	};

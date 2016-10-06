@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.ekthasol.asurance.models.Address;
 import com.ekthasol.asurance.models.Customer;
 import com.ekthasol.asurance.models.CustomerInfo;
+import com.ekthasol.asurance.models.FullDetails;
 import com.ekthasol.asurance.models.Quote;
 import com.ekthasol.asurance.models.Vehicle;
 import com.ekthasol.asurance.service.quotegeneration.QuoteGenerationService;
+import com.ekthasol.asurance.service.quotegeneration.RetrieveQuoteService;
 import com.ekthasol.asurance.service.quotegeneration.SaveQuoteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -31,8 +33,8 @@ public class QuoteGenerationController {
 	@Autowired
 	SaveQuoteService saveQuoteService;
 
-	/*@Autowired
-	PaymentService paymentService;*/
+	@Autowired
+	RetrieveQuoteService retrieveQuoteService; 
 	
 	public List<String> licenseList = new ArrayList<String>();
 
@@ -142,6 +144,14 @@ public class QuoteGenerationController {
 			return "saveQuote";
 		}else
 			return "failure";
+	}
+	
+	@RequestMapping(value = "/retrieveQuote", method = RequestMethod.POST)
+	public String retrieveQuote(@ModelAttribute Quote quote,HttpSession session) {
+
+		FullDetails fullDetails = retrieveQuoteService.retrieveQuote(quote.getQuoteId());
+		session.setAttribute("retrievedQuote", fullDetails);
+		return "premium";
 	}
 	/*
 	@RequestMapping(value = "/processPayment", method = RequestMethod.POST)

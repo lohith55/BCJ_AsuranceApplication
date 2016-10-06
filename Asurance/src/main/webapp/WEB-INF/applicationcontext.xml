@@ -23,4 +23,8 @@
 		class="com.ekthasol.asurance.service.quotegeneration.SaveQuoteService"></bean>
 	<bean id="saveQuoteDAO"
 		class="com.ekthasol.asurance.dao.quotegeneration.SaveQuoteDAO"></bean>
+	<bean id="RetrieveQuoteService"
+		class="com.ekthasol.asurance.service.quotegeneration.RetrieveQuoteService"></bean>
+	<bean id="retrieveQuoteDAO"
+		class="com.ekthasol.asurance.dao.quotegeneration.RetrieveQuoteDAO"></bean>
 	</beans>

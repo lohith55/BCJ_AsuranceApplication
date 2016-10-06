@@ -29,6 +29,6 @@
 		<url-pattern>/payments</url-pattern>
 		<url-pattern>/processPayment</url-pattern>
 		<url-pattern>/saveQuote</url-pattern>
-		
+		<url-pattern>/retrieveQuote</url-pattern>
 	</servlet-mapping>
 </web-app>

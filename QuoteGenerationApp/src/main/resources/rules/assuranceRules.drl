@@ -20,7 +20,7 @@ rule "Rule_1"
     	eval(true)
         //conditions
     then
-    	quote.setQuoteAmount(72.0);
+    	quote.setQuoteAmount(50.0);
     	quote.setQuoteId(getQuoteId());
     	System.out.println("Created new quote" + quote.getQuoteId());
         //actions
@@ -63,7 +63,7 @@ end
 rule "Rule by number of point is 4-7"
     //include attributes such as "salience" here...
     when
-        $p : CustomerVO( points != 0 && points >= 4 && points <= 7)
+        $p : CustomerVO( points >= 4 && points <= 7)
     then
     	quote.setQuoteAmount(quote.getQuoteAmount() + 10);
     	System.out.println(quote.getQuoteAmount() + "// points between 4 and 7 ");
@@ -74,7 +74,7 @@ end
 rule "Rule by number of point is > 7"
     //include attributes such as "salience" here...
     when
-        $p : CustomerVO( points != 0 && points > 7)
+        $p : CustomerVO(points > 7)
     then
     	quote.setQuoteAmount(quote.getQuoteAmount() + 15);
     	System.out.println(quote.getQuoteAmount() + "// points between 4 and 7 ");
@@ -96,7 +96,7 @@ end
 rule "Rule by amount of claims claimOnVehicle 1000 - 5000"
     //include attributes such as "salience" here...
     when
-        $p : CustomerVO( claimOnVehicle != 0 && claimOnVehicle >= 1000 && claimOnVehicle <= 5000)
+        $p : CustomerVO(claimOnVehicle >= 1000 && claimOnVehicle <= 5000)
     then
     	quote.setQuoteAmount(quote.getQuoteAmount() + 10);
     	System.out.println(quote.getQuoteAmount() + "// claims is < 1000");
@@ -107,7 +107,7 @@ end
 rule "Rule by amount of claims claimOnVehicle > 5000"
     //include attributes such as "salience" here...
     when
-        $p : CustomerVO( claimOnVehicle != 0 && claimOnVehicle > 5000)
+        $p : CustomerVO(claimOnVehicle > 5000)
     then
     	quote.setQuoteAmount(quote.getQuoteAmount() + 15);
     	System.out.println(quote.getQuoteAmount() + "// claims is < 1000");
@@ -150,7 +150,7 @@ end
 
 rule "Rule by creditscore <= 579"
     when
-        $p : CustomerVO( creditScore <= 579 )
+        $p : CustomerVO( creditScore != 0 && creditScore <= 579 )
     then
     	quote.setQuoteAmount(quote.getQuoteAmount() + 10);
     	System.out.println(quote.getQuoteAmount() + "// creditScore <= 579");
@@ -169,7 +169,6 @@ function String getQuoteId(){
     String s2 = Integer.toString(month);
     String s3 = Integer.toString(day);
 	return (s1 + s2 + s3 + String.format("%04d", rand.nextInt(10000)));
-	//return "123Assu2016";
 }
 
 

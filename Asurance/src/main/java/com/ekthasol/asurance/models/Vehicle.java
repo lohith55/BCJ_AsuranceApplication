@@ -13,12 +13,12 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "vehicle", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
+@Table(name = "vehicle", uniqueConstraints = { @UniqueConstraint(columnNames = "VEHICLE_ID") })
 public class Vehicle {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID", unique = true, nullable = false)
+	@Column(name = "VEHICLE_ID", unique = true, nullable = false)
 	private int id;
 
 	public int getId() {

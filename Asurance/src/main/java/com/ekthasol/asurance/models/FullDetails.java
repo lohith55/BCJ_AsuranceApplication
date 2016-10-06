@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -17,78 +19,70 @@ public class FullDetails {
 	@Column(name = "ID", unique = true, nullable = false)
 	private int ID;
 
-	@Column(name = "CUSTOMER_ID")
-	private int customerID;
+	@ManyToOne
+	@JoinColumn(name = "CUSTOMER_ID")
+	private Customer customer;
 
-	@Column(name = "ADDRESS_ID")
-	private int addressID;
-
-	@Column(name = "CUSTOMER_INFO_ID")
-	private int customerInfoID;
-
-	@Column(name = "VEHICLE_ID")
-	private int vehicleID;
-
-	@Column(name = "QUOTE_ID")
-	private String quoteID;
-
-	public int getID() {
-		return ID;
-	}
-
-	public void setID(int iD) {
-		ID = iD;
-	}
-
-	public int getCustomerID() {
-		return customerID;
-	}
-
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
-	}
-
-	public int getAddressID() {
-		return addressID;
-	}
-
-	public void setAddressID(int addressID) {
-		this.addressID = addressID;
-	}
-
-	public int getCustomerInfoID() {
-		return customerInfoID;
-	}
-
-	public void setCustomerInfoID(int customerInfoID) {
-		this.customerInfoID = customerInfoID;
-	}
-
-	public int getVehicleID() {
-		return vehicleID;
-	}
-
-	public void setVehicleID(int vehicleID) {
-		this.vehicleID = vehicleID;
-	}
-
-	public String getQuoteID() {
-		return quoteID;
-	}
-
-	public void setQuoteID(String quoteID) {
-		this.quoteID = quoteID;
-	}
-
-	public FullDetails(int customerID, int addressID, int customerInfoID, int vehicleID, String quoteID) {
-		super();
-		this.customerID = customerID;
-		this.addressID = addressID;
-		this.customerInfoID = customerInfoID;
-		this.vehicleID = vehicleID;
-		this.quoteID = quoteID;
-	}
-
+	@ManyToOne
+	@JoinColumn(name = "ADDRESS_ID")
+	private Address address;
 	
+	@ManyToOne
+	@JoinColumn(name = "VEHICLE_ID")
+	private Vehicle vehicle;
+	
+	@ManyToOne
+	@JoinColumn(name = "CUSTOMER_INFO_ID")
+	private CustomerInfo customerInfo;
+	
+	@ManyToOne
+	@JoinColumn(name = "QUOTE_ID")
+	private Quote quote;
+
+	@Override
+	public String toString() {
+		return "FullDetails [ID=" + ID + ", customer=" + customer + ", address=" + address + ", vehicle=" + vehicle
+				+ ", customerInfo=" + customerInfo + ", quote=" + quote + "]";
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
+
+	public CustomerInfo getCustomerInfo() {
+		return customerInfo;
+	}
+
+	public void setCustomerInfo(CustomerInfo customerInfo) {
+		this.customerInfo = customerInfo;
+	}
+
+	public Quote getQuote() {
+		return quote;
+	}
+
+	public void setQuote(Quote quote) {
+		this.quote = quote;
+	}
 	
 }
