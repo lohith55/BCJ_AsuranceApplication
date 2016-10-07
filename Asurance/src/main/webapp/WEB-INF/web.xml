@@ -30,5 +30,6 @@
 		<url-pattern>/processPayment</url-pattern>
 		<url-pattern>/saveQuote</url-pattern>
 		<url-pattern>/retrieveQuote</url-pattern>
+		<url-pattern>/saved</url-pattern>
 	</servlet-mapping>
 </web-app>

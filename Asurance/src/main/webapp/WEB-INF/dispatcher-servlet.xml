@@ -12,6 +12,8 @@
 	<context:component-scan base-package="com.ekthasol.asurance.controllers.login"></context:component-scan>
 	<context:component-scan base-package="com.ekthasol.asurance.controllers.quotegeneration"></context:component-scan>
 	<context:component-scan base-package="com.ekthasol.asurance.controllers.payment"></context:component-scan>
+	<context:component-scan base-package="com.ekthasol.asurance.controllers.savequote"></context:component-scan>
+	
 
 	<import resource="applicationcontext.xml" />
 	<import resource="hibernate.cfg.xml" />

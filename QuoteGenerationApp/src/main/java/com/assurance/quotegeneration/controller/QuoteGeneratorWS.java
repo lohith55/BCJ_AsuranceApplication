@@ -53,8 +53,5 @@ public class QuoteGeneratorWS {
 		return new ResponseEntity<String>(quoteInJson, HttpStatus.OK);
 
 	}
-	
-	
-	
 
 }

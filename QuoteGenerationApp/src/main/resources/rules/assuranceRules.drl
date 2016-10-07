@@ -156,6 +156,14 @@ rule "Rule by creditscore <= 579"
     	System.out.println(quote.getQuoteAmount() + "// creditScore <= 579");
 end
 
+rule "Rule for no creditscore"
+    when
+        $p : CustomerVO( creditScore == 0 )
+    then
+    	quote.setQuoteAmount(quote.getQuoteAmount() + 15);
+    	System.out.println(quote.getQuoteAmount() + "// creditScore = 0");
+end
+
 //end
 
 

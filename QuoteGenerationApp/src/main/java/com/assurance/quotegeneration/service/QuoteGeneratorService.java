@@ -85,18 +85,20 @@ public class QuoteGeneratorService {
 
 		ClaimHistory claimHistory = claimsHistoryClient.getClaimHistory(vin);
 
-		customerDroolData.setNumOfClaimsOnVehicle(claimHistory.getNumOfClaims());
+		if(claimHistory != null){
+			customerDroolData.setNumOfClaimsOnVehicle(claimHistory.getNumOfClaims());
+			customerDroolData.setClaimOnVehicle(claimHistory.getClaimAmount());			
+		}
 		//droolData.setNumOfClaimsByDrivers(claimsByDrivers);
 		customerDroolData.setAge(primaryDriverAge);
 		customerDroolData.setNumOfTickets(driverTickets);
-		customerDroolData.setClaimOnVehicle(claimHistory.getClaimAmount());
 		customerDroolData.setPoints(driverPoints);
 		customerDroolData.setEducationLevel(customerDetails.getEducation());
 		customerDroolData.setVehicleMakeYear(customerDetails.getVehicleMakeYear());
 		
 //Start-Added by CM
 		String ssn = customerDetails.getSsn();
-		if(ssn != null){
+		if(!ssn.isEmpty()){
 			int creditScore = creditHistoryClient.getCreditScore(ssn);
 			customerDroolData.setCreditScore(creditScore);			
 		}

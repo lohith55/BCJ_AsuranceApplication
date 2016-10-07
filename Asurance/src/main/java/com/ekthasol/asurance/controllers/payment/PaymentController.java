@@ -31,7 +31,7 @@ public class PaymentController {
 			if(result)
 				return "paymentsuccess";
 			else
-				return "failure";
+				return "paymentfailed";
 	}
  }
 			

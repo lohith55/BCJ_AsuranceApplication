@@ -15,12 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.ekthasol.asurance.models.Address;
 import com.ekthasol.asurance.models.Customer;
 import com.ekthasol.asurance.models.CustomerInfo;
-import com.ekthasol.asurance.models.FullDetails;
 import com.ekthasol.asurance.models.Quote;
 import com.ekthasol.asurance.models.Vehicle;
 import com.ekthasol.asurance.service.quotegeneration.QuoteGenerationService;
-import com.ekthasol.asurance.service.quotegeneration.RetrieveQuoteService;
-import com.ekthasol.asurance.service.quotegeneration.SaveQuoteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
@@ -30,13 +27,7 @@ public class QuoteGenerationController {
 	@Autowired
 	QuoteGenerationService quoteGenerationService;
 	
-	@Autowired
-	SaveQuoteService saveQuoteService;
-
-	@Autowired
-	RetrieveQuoteService retrieveQuoteService; 
-	
-	public List<String> licenseList = new ArrayList<String>();
+	List<String> licenseList = new ArrayList<String>();
 
 	@RequestMapping(value = "/getVehicles", method = RequestMethod.POST)
 	public String getVehicles(@ModelAttribute Customer customer, @ModelAttribute Address address, HttpSession session) {
@@ -130,35 +121,4 @@ public class QuoteGenerationController {
 		return "payments";
 	}
 	
-	@RequestMapping(value = "/saveQuote", method = RequestMethod.POST)
-	public String saveQuote(HttpSession session) {
-
-		Customer customer = (Customer) session.getAttribute("customer");
-		Address address = (Address) session.getAttribute("address");
-		Vehicle vehicle = (Vehicle) session.getAttribute("selectedVehicle");
-		CustomerInfo customerInfo = (CustomerInfo) session.getAttribute("customerInfo");
-		Quote quote = (Quote) session.getAttribute("quote");
-		boolean status = saveQuoteService.saveQuote(customer, address, vehicle, quote, customerInfo);
-		if(status){
-			session.setAttribute("saved", "Details saved successfully!!!");
-			return "saveQuote";
-		}else
-			return "failure";
-	}
-	
-	@RequestMapping(value = "/retrieveQuote", method = RequestMethod.POST)
-	public String retrieveQuote(@ModelAttribute Quote quote,HttpSession session) {
-
-		FullDetails fullDetails = retrieveQuoteService.retrieveQuote(quote.getQuoteId());
-		session.setAttribute("retrievedQuote", fullDetails);
-		return "premium";
-	}
-	/*
-	@RequestMapping(value = "/processPayment", method = RequestMethod.POST)
-	public String processPayment(@ModelAttribute CreditCard creditCard,HttpSession session) {
-
-		session.setAttribute("creditCard", creditCard);
-		paymentService.processPayment(creditCard, 576.00);
-		return "payments";
-	}*/
 }

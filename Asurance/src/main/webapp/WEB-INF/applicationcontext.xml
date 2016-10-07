@@ -20,11 +20,11 @@
 	<bean id="paymentService"
 		class="com.ekthasol.asurance.service.payment.PaymentService"></bean>
 	<bean id="saveQuoteService"
-		class="com.ekthasol.asurance.service.quotegeneration.SaveQuoteService"></bean>
+		class="com.ekthasol.asurance.service.savequote.SaveQuoteService"></bean>
 	<bean id="saveQuoteDAO"
-		class="com.ekthasol.asurance.dao.quotegeneration.SaveQuoteDAO"></bean>
+		class="com.ekthasol.asurance.dao.savequote.SaveQuoteDAO"></bean>
 	<bean id="RetrieveQuoteService"
-		class="com.ekthasol.asurance.service.quotegeneration.RetrieveQuoteService"></bean>
+		class="com.ekthasol.asurance.service.savequote.RetrieveQuoteService"></bean>
 	<bean id="retrieveQuoteDAO"
-		class="com.ekthasol.asurance.dao.quotegeneration.RetrieveQuoteDAO"></bean>
+		class="com.ekthasol.asurance.dao.savequote.RetrieveQuoteDAO"></bean>
 	</beans>

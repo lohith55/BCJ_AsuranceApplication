@@ -388,6 +388,45 @@ $(".submit").click(function(e){
 		            }
 		        });
 });
+
+$(".save").click(function(e){
+	e.preventDefault();
+	var quoteID = $(".quoteId").text();
+	var quoteAmt = $(".quoteAmount").text().substring(1);
+	var liabilityAmt = $(".liabilityAmount").text().substring(1);
+	var uninsuredAmt = $(".uninAmount").text().substring(1);
+	var underInsuredAmt = $(".underinAmount").text().substring(1);
+	var uninsuredPDAmt = $(".underinPDAmount").text().substring(1);
+	var injuryProtectionAmt = $(".personalAmount").text().substring(1);
+	var comprehensiveAmt = $(".compAmount").text().substring(1);
+	var collisionAmt = $(".collAmount").text().substring(1);
+	var rentalAmt = $(".rentAmount").text().substring(1);
+	var roadsideAmt = $(".roadAmount").text().substring(1);
+	var formData = {
+			quoteId: quoteID,
+			quoteAmount: quoteAmt,
+			liability: liabilityAmt,
+			unInsured: uninsuredAmt,
+			underInsured: uninsuredAmt,
+			uninsuredPD: uninsuredPDAmt,
+			injuryProtection: injuryProtectionAmt,
+			comprehensive: comprehensiveAmt,
+			collision: collisionAmt,
+			rental: rentalAmt,
+			roadSide: roadsideAmt
+	};
+	   $.ajax(
+		        {
+		            type: "POST",
+		            data: JSON.stringify(formData),
+		            url: "saveQuote",
+		            contentType: 'application/json; charset=utf-8',
+		            success: function(data){
+		            	console.log(data);
+		            	window.location.href = "saved";
+		            }
+		        });
+});
 	
 	/*$("#liabilityInput").attr("value", liability);
 	$("#unInsuredInput").attr("value", uninsured);
