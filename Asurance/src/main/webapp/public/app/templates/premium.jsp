@@ -57,14 +57,14 @@ hr.style15 {
 	<div class="container" style="margin-top: 86px;">
 		<span style="color: #ffb84d; font-size: 35px;"><strong>Here's
 				your quote!</strong></span><br>
-		<%	FullDetails retrievedQuote = (FullDetails) session.getAttribute("retrievedQuote");
-			if (retrievedQuote != null) {
+		<%	FullDetails fullDetails = (FullDetails) session.getAttribute("fullDetails");
+			if (fullDetails != null) {
 		%>
 		<!-- <form method="post" action="saveQuote"> -->
 		<label style="font-size: 35px;">Quote for 6 Months</label><br> <label
-			id="qtAmt${retrievedQuote.getQuote().getQuoteAmount() }"
-			class="quoteAmount" name="quoteAmount" style="font-size: 35px;">$${retrievedQuote.getQuote().getQuoteAmount()
-			}</label> <label class="quoteId" style="visibility: hidden;">${retrievedQuote.getQuote().getQuoteId() }</label>
+			id="qtAmt${fullDetails.getQuote().getQuoteAmount()}"
+			class="quoteAmount" name="quoteAmount" style="font-size: 35px;">$${fullDetails.getQuote().getQuoteAmount()
+			}</label> <label class="quoteId" style="visibility: hidden;">${fullDetails.getQuote().getQuoteId() }</label>
 		<hr class="style13" style="margin-top: 25px;">
 
 		<div class="row">
@@ -87,9 +87,9 @@ hr.style15 {
 				<button type="button" class="btn btn-default">Edit</button>
 			</div>
 			<span id="liabilitySelection" style="margin-left: 40px; color: grey;">$25k/$50k/$25k</span>
-			<span id="lbAmt${retrievedQuote.getQuote().getLiability() }"
+			<span id="lbAmt${fullDetails.getQuote().getLiability() }"
 				class="liabilityAmount" name="liability"
-				style="margin-left: 80px; color: grey;">$${retrievedQuote.getQuote().getLiability()
+				style="margin-left: 80px; color: grey;">$${fullDetails.getQuote().getLiability()
 				}</span>
 		</div>
 
@@ -105,8 +105,8 @@ hr.style15 {
 			</div>
 			<span id="uninsuredSelection" style="margin-left: 40px; color: grey;">No
 				coverage</span> <span
-				id="uninAmt${retrievedQuote.getQuote().getUnInsured() }"
-				class="uninAmount" style="margin-left: 120px; color: grey;">$${retrievedQuote.getQuote().getUnInsured()}</span>
+				id="uninAmt${fullDetails.getQuote().getUnInsured() }"
+				class="uninAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getUnInsured()}</span>
 		</div>
 
 		<hr class="style14">
@@ -121,8 +121,8 @@ hr.style15 {
 			</div>
 			<span id="underinsuredSelection"
 				style="margin-left: 40px; color: grey;">No coverage</span> <span
-				id="underinAmt${retrievedQuote.getQuote().getUnderInsured() }"
-				class="underinAmount" style="margin-left: 120px; color: grey;">$${retrievedQuote.getQuote().getUnderInsured()}</span>
+				id="underinAmt${fullDetails.getQuote().getUnderInsured() }"
+				class="underinAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getUnderInsured()}</span>
 		</div>
 
 		<hr class="style14">
@@ -139,8 +139,8 @@ hr.style15 {
 			</div>
 			<span id="uninsuredMotoristSelection"
 				style="margin-left: 40px; color: grey;">No coverage</span> <span
-				id="unInAmt${retrievedQuote.getQuote().getUnInsuredPD() }"
-				class="underinPDAmount" style="margin-left: 120px; color: grey;">$${retrievedQuote.getQuote().getUnInsuredPD()}</span>
+				id="unInAmt${fullDetails.getQuote().getUnInsuredPD() }"
+				class="underinPDAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getUnInsuredPD()}</span>
 		</div>
 
 		<hr class="style14">
@@ -156,8 +156,8 @@ hr.style15 {
 			</div>
 			<span id="personalInjurySelection"
 				style="margin-left: 40px; color: grey;">No coverage</span> <span
-				id="personalInjAmt${retrievedQuote.getQuote().getInjuryProtection() }"
-				class="personalAmount" style="margin-left: 120px; color: grey;">$${retrievedQuote.getQuote().getInjuryProtection()}</span>
+				id="personalInjAmt${fullDetails.getQuote().getInjuryProtection() }"
+				class="personalAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getInjuryProtection()}</span>
 		</div>
 
 		<hr class="style14">
@@ -165,9 +165,9 @@ hr.style15 {
 		<!-- Comphrenesive plan -->
 
 		<h3 style="margin-left: 25px; color: #3884C9;">
-			<strong>${retrievedQuote.getVehicle().getYear() }
-				${retrievedQuote.getVehicle().getMake() }
-				${retrievedQuote.getVehicle().getModel() } Coverages</strong>
+			<strong>${fullDetails.getVehicle().getYear() }
+				${fullDetails.getVehicle().getMake() }
+				${fullDetails.getVehicle().getModel() } Coverages</strong>
 		</h3>
 
 		<div>
@@ -179,8 +179,8 @@ hr.style15 {
 			</div>
 			<span id="compSelection" style="margin-left: 40px; color: grey;">No
 				Coverage</span> <span
-				id="cpAmt${retrievedQuote.getQuote().getComprehensive() }"
-				class="compAmount" style="margin-left: 120px; color: grey;">$${retrievedQuote.getQuote().getComprehensive()}</span>
+				id="cpAmt${fullDetails.getQuote().getComprehensive() }"
+				class="compAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getComprehensive()}</span>
 		</div>
 
 		<hr class="style14">
@@ -196,8 +196,8 @@ hr.style15 {
 			</div>
 			<span id="collSelection" style="margin-left: 40px; color: grey;">No
 				Coverage</span> <span
-				id="clAmt${retrievedQuote.getQuote().getCollision() }"
-				class="collAmount" style="margin-left: 120px; color: grey;">$${retrievedQuote.getQuote().getCollision()}</span>
+				id="clAmt${fullDetails.getQuote().getCollision() }"
+				class="collAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getCollision()}</span>
 		</div>
 
 		<hr class="style14">
@@ -212,8 +212,8 @@ hr.style15 {
 					data-target="#myModal7">Edit</button>
 			</div>
 			<span id="rentSelection" style="margin-left: 40px; color: grey;">No
-				Coverage</span> <span id="rtAmt${retrievedQuote.getQuote().getRental() }"
-				class="rentAmount" style="margin-left: 120px; color: grey;">$${retrievedQuote.getQuote().getRental()}</span>
+				Coverage</span> <span id="rtAmt${fullDetails.getQuote().getRental() }"
+				class="rentAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getRental()}</span>
 		</div>
 
 		<hr class="style14">
@@ -228,8 +228,8 @@ hr.style15 {
 					data-target="#myModal8">Edit</button>
 			</div>
 			<span id="roadSelection" style="margin-left: 40px; color: grey;">No
-				Coverage</span> <span id="rdAmt${retrievedQuote.getQuote().getRoadSide() }"
-				class="roadAmount" style="margin-left: 120px; color: grey;">$${retrievedQuote.getQuote().getRoadSide()}</span>
+				Coverage</span> <span id="rdAmt${fullDetails.getQuote().getRoadSide() }"
+				class="roadAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getRoadSide()}</span>
 		</div>
 
 		<hr class="style14">
@@ -246,7 +246,7 @@ hr.style15 {
 
 		<div class="row">
 			<div class="col-sm-4">
-				<button class="btn btn-md btn-primary" onClick="history.back()">Back</button>
+				<button class="btn btn-md btn-primary" id="backBtn">Back</button>
 
 
 			</div>
@@ -445,7 +445,7 @@ hr.style15 {
 
 		<div class="row">
 			<div class="col-sm-4">
-				<button class="btn btn-md btn-primary" onClick="history.back()">Back</button>
+				<button class="btn btn-md btn-primary" id="backBtn" >Back</button>
 
 
 			</div>
@@ -1068,6 +1068,9 @@ hr.style15 {
 									$("#scrollNabar").hide();
 									$('#navbar').show();
 								}
+							});
+							$("#backBtn").click(function(){
+								window.location.href="addDriver"
 							});
 						});
 	</script>

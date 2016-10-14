@@ -26,13 +26,17 @@ public class QuoteGenerationController {
 
 	@Autowired
 	QuoteGenerationService quoteGenerationService;
-	
+
 	List<String> licenseList = new ArrayList<String>();
 
 	@RequestMapping(value = "/getVehicles", method = RequestMethod.POST)
 	public String getVehicles(@ModelAttribute Customer customer, @ModelAttribute Address address, HttpSession session) {
 		String output = quoteGenerationService.getVehiclesList(address);
-		session.setAttribute("customer", customer);
+		Customer cust = (Customer) session.getAttribute("customer");
+		if (cust != null)
+			session.setAttribute("customer", cust);
+		else
+			session.setAttribute("customer", customer);
 		session.setAttribute("address", address);
 		if (output != null) {
 			List<Vehicle> vehicleList = null;
@@ -79,10 +83,14 @@ public class QuoteGenerationController {
 		return "driverInfo";
 	}
 
+	@RequestMapping(value = "/addDriver", method = RequestMethod.GET)
+	public String redirectToDriverInfo(@ModelAttribute CustomerInfo customerInfo, HttpSession session) {
+		return "driverInfo";
+	}
+
 	@RequestMapping(value = "/getQuote", method = RequestMethod.POST)
 	public String goToPremium(HttpSession session) {
 
-		
 		CustomerInfo custInfo = (CustomerInfo) session.getAttribute("customerInfo");
 		System.out.println(custInfo.toString());
 		Vehicle vehicleInfo = (Vehicle) session.getAttribute("selectedVehicle");
@@ -95,30 +103,44 @@ public class QuoteGenerationController {
 		inputQuote.setVehicleMakeYear(vehicleInfo.getYear());
 
 		Quote resultQuote = quoteGenerationService.getQuoteAmount(inputQuote);
-		if(resultQuote != null){
+		if (resultQuote != null) {
 			session.setAttribute("quote", resultQuote);
 			licenseList.clear();
 			return ("premium");
-		}
-		else{
+		} else {
 			session.setAttribute("failMessage", "Couldn't generate the quote, try again later!!");
 			licenseList.clear();
 			return ("driverInfo");
 		}
 	}
-	
+
+	@RequestMapping(value = "/getQuote", method = RequestMethod.GET)
+	public String redirectToPremium(@ModelAttribute CustomerInfo customerInfo, HttpSession session) {
+		
+		return "premium";
+	}
+
 	@RequestMapping(value = "/payment", method = RequestMethod.POST)
-	public String verifyCreditCard(@RequestBody Quote quote,HttpSession session) {
+	public String verifyCreditCard(@RequestBody Quote quote, HttpSession session) {
 
-		System.out.println(quote.toString());
-		session.setAttribute("newQuote", quote);
-		return "payments";
+		
+			System.out.println(quote.toString());
+			session.setAttribute("newQuote", quote);
+			return "payments";
+		
 	}
-	
+
 	@RequestMapping(value = "/payments", method = RequestMethod.GET)
-	public String goToPayments() {
+	public String goToPayments(HttpSession session) {
 
+		String loggedIn = (String) session.getAttribute("loggedIn");
+		session.setAttribute("notLoggedIn", "true");
+		if ("true".equals(loggedIn)) {
 		return "payments";
+		} else
+		{
+			return "redirect:/#/login";
+		}
 	}
-	
+
 }

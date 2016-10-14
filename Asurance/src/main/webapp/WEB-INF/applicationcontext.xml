@@ -23,7 +23,7 @@
 		class="com.ekthasol.asurance.service.savequote.SaveQuoteService"></bean>
 	<bean id="saveQuoteDAO"
 		class="com.ekthasol.asurance.dao.savequote.SaveQuoteDAO"></bean>
-	<bean id="RetrieveQuoteService"
+	<bean id="retrieveQuoteService"
 		class="com.ekthasol.asurance.service.savequote.RetrieveQuoteService"></bean>
 	<bean id="retrieveQuoteDAO"
 		class="com.ekthasol.asurance.dao.savequote.RetrieveQuoteDAO"></bean>

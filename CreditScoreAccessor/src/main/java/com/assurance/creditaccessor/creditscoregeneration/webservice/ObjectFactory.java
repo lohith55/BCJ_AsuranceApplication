@@ -35,19 +35,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCreditScoreBySSNResponse }
-     * 
-     */
-    public GetCreditScoreBySSNResponse createGetCreditScoreBySSNResponse() {
-        return new GetCreditScoreBySSNResponse();
-    }
-
-    /**
      * Create an instance of {@link GetCreditScoreBySSN }
      * 
      */
     public GetCreditScoreBySSN createGetCreditScoreBySSN() {
         return new GetCreditScoreBySSN();
+    }
+
+    /**
+     * Create an instance of {@link GetCreditScoreBySSNResponse }
+     * 
+     */
+    public GetCreditScoreBySSNResponse createGetCreditScoreBySSNResponse() {
+        return new GetCreditScoreBySSNResponse();
     }
 
     /**

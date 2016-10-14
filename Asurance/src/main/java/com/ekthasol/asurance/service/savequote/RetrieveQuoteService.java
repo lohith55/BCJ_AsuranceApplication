@@ -11,8 +11,7 @@ public class RetrieveQuoteService {
 	RetrieveQuoteDAO retrieveQuoteDAO;
 	
 	public FullDetails retrieveQuote(String quoteID){
-		FullDetails fullDetails = new FullDetails();
-		fullDetails = retrieveQuoteDAO.retrieveQuote(quoteID);
+		FullDetails fullDetails = retrieveQuoteDAO.retrieveQuote(quoteID);
 		return fullDetails;
 	}
 

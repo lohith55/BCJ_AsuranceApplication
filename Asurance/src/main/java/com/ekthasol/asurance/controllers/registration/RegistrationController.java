@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ekthasol.asurance.models.Address;
 import com.ekthasol.asurance.models.Customer;
+import com.ekthasol.asurance.models.Quote;
 import com.ekthasol.asurance.service.registration.RegistrationService;
 
 @Controller
@@ -27,6 +28,11 @@ public class RegistrationController {
 		boolean status = registrationService.saveCustomer(customer, address);
 
 		if (status){
+			Quote quote = (Quote) session.getAttribute("newQuote");	
+			if(quote.getQuoteAmount() > 0.00){
+				return "redirect:/payments";
+			}
+			session.setAttribute("currentSession", "activeSession");
 			session.setAttribute("customer", customer);
 			return "success";
 		}

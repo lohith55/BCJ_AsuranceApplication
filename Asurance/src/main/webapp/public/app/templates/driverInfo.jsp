@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ page import="com.ekthasol.asurance.models.FullDetails"%>
 <!DOCTYPE html">
 <html>
 <head>
@@ -34,6 +35,53 @@ li {
 			</div>
 		</div>
 		<hr class="colorgraph">
+		<%FullDetails retrievedQuote = (FullDetails) session.getAttribute("retrievedQuote");
+			if (retrievedQuote != null) {
+		%>
+			<div id="wrongCredential" style="color: red; font-size: 20px;">${failMessage }</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<span id="selected" class="glyphicon glyphicon-ok"></span><small>PolicyHolder</small><br>
+					<label style="font-size: 20px;">${retrievedQuote.getCustomer().getFirstName() }
+						${retrievedQuote.getCustomer().getLastName() }</label>
+
+				</div>
+				<div class="col-sm-6">
+					<span>Added</span><br>
+					<button type="button" class="btn btn-lg btn-default" id="btn1"
+						onClick="history.back()">Edit</button>
+
+				</div>
+			</div>
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-sm-6">
+					<h2>Add another driver?</h2>
+				</div>
+				<div class="col-sm-6">
+					<button type="button" class="btn btn-lg btn-default" id="btn2">
+						<span class="glyphicon glyphicon-plus"></span>Add to Quote
+
+					</button>
+				</div>
+			</div>
+
+			<hr class="colorgraph">
+
+
+			<div class="row">
+				<div class="col-sm-4">
+					<button class="btn btn-md btn-primary" id="backBtn">Back</button>
+
+				</div>
+				<div class="col-sm-4">
+					<a class="btn btn-md btn-primary" href="/Asurance">Cancel</a>
+				</div>
+				<div class="col-sm-4">
+					<button class="btn btn-md btn-primary" id="continue">Continue</button>
+				</div>
+			</div>
+		<%}else{ %>
 		<form method="post" action="getQuote">
 			<div id="wrongCredential" style="color: red; font-size: 20px;">${failMessage }</div>
 			<div class="row">
@@ -80,6 +128,7 @@ li {
 				</div>
 			</div>
 		</form>
+		<%} %>
 	</div>
 
 
@@ -102,6 +151,12 @@ li {
 									$("#scrollNabar").hide();
 									$('#navbar').show();
 								}
+							});
+							$("#backBtn").click(function(){
+								window.location.href="addDriver"
+							});
+							$("#continue").click(function(){
+								window.location.href="getQuote"
 							});
 						});
 	</script>

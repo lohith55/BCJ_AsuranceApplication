@@ -5,9 +5,11 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.ekthasol.asurance.models.FullDetails;
 
+@Repository
 public class RetrieveQuoteDAO {
 	
 	@Autowired

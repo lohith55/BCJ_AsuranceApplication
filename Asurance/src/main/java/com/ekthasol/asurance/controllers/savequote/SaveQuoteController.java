@@ -37,7 +37,6 @@ public class SaveQuoteController {
 		session.setAttribute("newQuote", quote);
 		boolean status = saveQuoteService.saveQuote(customer, address, vehicle, quote, customerInfo);
 		if(status){
-			session.setAttribute("saved", "Details saved successfully!!!");
 			return "saveQuote";
 		}else
 			return "failure";
@@ -47,7 +46,7 @@ public class SaveQuoteController {
 	public String retrieveQuote(@ModelAttribute Quote quote,HttpSession session) {
 
 		FullDetails fullDetails = retrieveQuoteService.retrieveQuote(quote.getQuoteId());
-		session.setAttribute("retrievedQuote", fullDetails);
+		session.setAttribute("fullDetails", fullDetails);
 		return "premium";
 	}
 	

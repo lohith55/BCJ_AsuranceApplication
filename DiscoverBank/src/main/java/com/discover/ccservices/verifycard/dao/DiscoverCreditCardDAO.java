@@ -28,20 +28,37 @@ public class DiscoverCreditCardDAO {
 
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
+		
+		SQLQuery query = null;
 		/*
 		 * The query takes in credit card details, billing address to verify the card.
 		 * If the is card is a valid one, then the available balance in the card is returned.
 		 */
-		SQLQuery query = session.createSQLQuery("select balance from credit_card "
+		if (creditCardFromCustomer.getBillingAddress().getAddressLine2().isEmpty()){
+
+		query = session.createSQLQuery("select balance from credit_card "
 				+ "join billing_address on billing_address.ba_id=credit_card.ba_id " + "where credit_card ='"
 				+ creditCardFromCustomer.getCreditCard().trim() + "'" + " and name_on_card ='"
 				+ creditCardFromCustomer.getNameOnCard().trim() + "'" + " and cvv = '" + creditCardFromCustomer.getCvv().trim() + "'"
-				+ "and line1 = '" + creditCardFromCustomer.getBillingAddress().getAddressLine1().trim() + "'" + " and line2 = '"
-				+ creditCardFromCustomer.getBillingAddress().getAddressLine2().trim() + "'" + "and city = '"
+				+ "and line1 = '" + creditCardFromCustomer.getBillingAddress().getAddressLine1().trim() + "'" + " and city = '"
 				+ creditCardFromCustomer.getBillingAddress().getCity().trim() + "'" + " and state = '"
 				+ creditCardFromCustomer.getBillingAddress().getState().trim() + "'" + " and zip = '"
 				+ creditCardFromCustomer.getBillingAddress().getZip().trim() + "'");
-
+		}
+		
+		else {
+			
+			query = session.createSQLQuery("select balance from credit_card "
+					+ "join billing_address on billing_address.ba_id=credit_card.ba_id " + "where credit_card ='"
+					+ creditCardFromCustomer.getCreditCard().trim() + "'" + " and name_on_card ='"
+					+ creditCardFromCustomer.getNameOnCard().trim() + "'" + " and cvv = '" + creditCardFromCustomer.getCvv().trim() + "'"
+					+ "and line1 = '" + creditCardFromCustomer.getBillingAddress().getAddressLine1().trim() + "'" + " and line2 = '"
+					+ creditCardFromCustomer.getBillingAddress().getAddressLine2().trim() + "'" + "and city = '"
+					+ creditCardFromCustomer.getBillingAddress().getCity().trim() + "'" + " and state = '"
+					+ creditCardFromCustomer.getBillingAddress().getState().trim() + "'" + " and zip = '"
+					+ creditCardFromCustomer.getBillingAddress().getZip().trim() + "'");
+			
+		}
 		List<Integer> list = query.list();
 		session.getTransaction().commit();
 		/*

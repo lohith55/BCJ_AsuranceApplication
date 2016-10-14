@@ -78,9 +78,13 @@ font-size: 20px;
 #registerForm form {
 	margin-bottom: 80px;
 }
-#quotePage, #retrieveQuotePage {
+#quotePage{
     margin-top: 153px;
     margin-bottom: 150px;
+    }
+    #retrieveQuotePage {
+    margin-top: 100px;
+    margin-bottom: 530px;
     }
 #login{
 	margin-bottom: 362px;

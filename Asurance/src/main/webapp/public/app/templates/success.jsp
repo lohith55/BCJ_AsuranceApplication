@@ -2,6 +2,10 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@page import="com.ekthasol.asurance.models.Customer"%>
+<%@page import="com.ekthasol.asurance.models.Quote"%>
+<%@page import="com.ekthasol.asurance.models.FullDetails"%>
+<%@page import="com.ekthasol.asurance.service.savequote.RetrieveQuoteService"%>
+<%@page import="com.ekthasol.asurance.dao.savequote.RetrieveQuoteDAO"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -16,23 +20,17 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="../Asurance/public/css/footer.css" rel="stylesheet">
 <script src="public/bower_components/angular/angular.js"></script>
-<title>Logged in</title>
+<title>Welcome</title>
 
 </head>
 <body ng-app="components">
-
 	<%
-		HttpSession sessiona = request.getSession(false);
+		if(session!=null){
 	%>
-	<%-- <%
-		if (sessiona != null) {
-	%> --%>
 	<%
 		Customer customer = (Customer) session.getAttribute("customer");
-		
-	%>
-		 <%
-		if (customer != null) {
+		String quoteId = null;
+		quoteId =  customer.getPolicyNumber();
 	%> 
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -89,9 +87,7 @@
 						<h3>
 							<label>First Name:</label> <label><b><%=customer.getFirstName()%></b></label><br>
 							<label>Last Name:</label> <label><b><%=customer.getLastName()%></b></label><br>
-							<% String policyNumber = (String) customer.getPolicyNumber(); %>
-							<%if(policyNumber != null) {%><label>Your Policy#:</label> <label><b><%=customer.getPolicyNumber()%></b></label><br>
-							<label>Your Policy#:</label> <label><b><%=customer.getPolicyNumber()%></b></label><br>
+							 <%if(customer.getPolicyNumber() != null) {%><label>Your Policy#:</label> <label><b><%=customer.getPolicyNumber()%></b></label><br>
 					<%} else {%>
 							<label>Your Policy#:</label> <label><b>No Policy purchased Yet! <a href="/Asurance/#/quote">click to buy one</a></b></label><br>
 						<%} %>
@@ -122,9 +118,10 @@
 
 		</div>
 	</div>
- 	<%} else {%> 
- 	<c:redirect url="/#/login"/>
- 	<%} %>
+ 	 <%} else {%>
+ 	<c:redirect url="/#/login"/> 
+ 	<%} %> 
+ 
 	<footer custom-footer></footer>
 	<script src="public/app/modules/modules.js"></script>
 	<script src="public/app/components/footer.js"></script>

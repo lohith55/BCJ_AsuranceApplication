@@ -19,9 +19,22 @@ public class FullDetails {
 	@Column(name = "ID", unique = true, nullable = false)
 	private int ID;
 
+	public FullDetails() {
+		super();
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "CUSTOMER_ID")
 	private Customer customer;
+
+	public FullDetails(Customer customer, Address address, Vehicle vehicle, CustomerInfo customerInfo, Quote quote) {
+		super();
+		this.customer = customer;
+		this.address = address;
+		this.vehicle = vehicle;
+		this.customerInfo = customerInfo;
+		this.quote = quote;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "ADDRESS_ID")
