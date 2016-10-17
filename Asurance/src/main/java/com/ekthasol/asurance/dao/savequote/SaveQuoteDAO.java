@@ -24,27 +24,20 @@ public class SaveQuoteDAO {
 		Session session = sessionFactory.openSession();
 		try {
 			
-			/*if(customer.getEmail() != null){
-				session.update(address);
+			if(customer.getEmail() != null){
 				customer.setPolicyNumber(quote.getQuoteId());
 				session.update(customer);
-				Query query = session.createSQLQuery("update Customer set POLICY_NUMBER = '"+quote.getQuoteId()+"' where EMAIL= '"+customer.getEmail()+"' and PASSWORD = '"+customer.getPassword()+"'");
-				query.executeUpdate();
 			}
 			else{
-				session.save(address);
 				session.save(customer);
 			}
-			session.save(vehicle);
-			session.save(customerInfo);
-			session.save(quote);*/
-			session.saveOrUpdate(customer);
 			session.saveOrUpdate(address);
 			session.saveOrUpdate(quote);
 			session.saveOrUpdate(customerInfo);
 			session.saveOrUpdate(vehicle);
 			FullDetails fullDetails = new FullDetails(customer, address, vehicle, customerInfo, quote);
 			fulldetailID = (Integer) session.save(fullDetails);
+			session.flush();
 			if(fulldetailID > 0)
 				return true;
 		} catch (HibernateException e) {

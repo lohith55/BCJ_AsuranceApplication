@@ -10,7 +10,7 @@
 				<%if(failure != null) {%><div id="wrongCredential" style="color:red"><%=failure %></div>
 					<%} session.invalidate();%>
 			<form role="form" name="registerPage" ng-controller="startPageCtrl"
-				   action="saveCustomer" method="post" >
+				   action="register" method="post" >
 				 <span
 								class="text-error"
 								ng-show="registerPage.submitted && registerPage.$invalid"

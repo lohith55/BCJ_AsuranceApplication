@@ -50,7 +50,7 @@ public class SaveQuoteController {
 		return "premium";
 	}
 	
-	@RequestMapping(value = "/saved", method = RequestMethod.GET)
+	@RequestMapping(value = "/quotesaved", method = RequestMethod.GET)
 	public String goToPayments() {
 
 		return "saveQuote";

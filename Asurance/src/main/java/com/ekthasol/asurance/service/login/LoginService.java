@@ -11,10 +11,7 @@ public class LoginService {
 	LoginDAO loginDAO;
 	
 	public Customer getCustomer(String email,String password){
-		
-		Customer customer = loginDAO.getCustomer(email, password);
-		
-		return customer;
+	
+		return loginDAO.getCustomer(email, password);
 	}
-
 }

@@ -20,16 +20,15 @@ public class RegistrationController {
 	@Autowired
 	RegistrationService registrationService;
 
-	@RequestMapping(value="/saveCustomer", method=RequestMethod.POST)
-	public String saveCustomer(@ModelAttribute Customer customer, @ModelAttribute Address address,HttpSession session, HttpServletResponse  response) {
+	@RequestMapping(value="/register", method=RequestMethod.POST)
+	public String registerCustomer(@ModelAttribute Customer customer, @ModelAttribute Address address,HttpSession session, HttpServletResponse  response) {
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-		System.out.println(customer);
 
 		boolean status = registrationService.saveCustomer(customer, address);
 
 		if (status){
 			Quote quote = (Quote) session.getAttribute("newQuote");	
-			if(quote.getQuoteAmount() > 0.00){
+			if(quote != null && quote.getQuoteAmount() > 0.00){
 				return "redirect:/payments";
 			}
 			session.setAttribute("currentSession", "activeSession");

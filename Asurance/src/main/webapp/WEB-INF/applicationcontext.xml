@@ -7,24 +7,19 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+	
 	<bean id="quoteGenerationService"
 		class="com.ekthasol.asurance.service.quotegeneration.QuoteGenerationService"></bean>
 	<bean id="registrationService"
 		class="com.ekthasol.asurance.service.registration.RegistrationService"></bean>
-	<bean id="registrationDAO"
-		class="com.ekthasol.asurance.dao.registration.RegistrationDAO"></bean>
-	<bean id="loginService"
-		class="com.ekthasol.asurance.service.login.LoginService"></bean>
-	<bean id="loginDAO"
-		class="com.ekthasol.asurance.dao.login.LoginDAO"></bean>
-	<bean id="paymentService"
-		class="com.ekthasol.asurance.service.payment.PaymentService"></bean>
+	<bean id="registrationDAO" class="com.ekthasol.asurance.dao.registration.RegistrationDAO"></bean>
+	<bean id="loginService" class="com.ekthasol.asurance.service.login.LoginService"></bean>
+	<bean id="loginDAO" class="com.ekthasol.asurance.dao.login.LoginDAO"></bean>
+	<bean id="paymentService" class="com.ekthasol.asurance.service.payment.PaymentService"></bean>
 	<bean id="saveQuoteService"
 		class="com.ekthasol.asurance.service.savequote.SaveQuoteService"></bean>
-	<bean id="saveQuoteDAO"
-		class="com.ekthasol.asurance.dao.savequote.SaveQuoteDAO"></bean>
+	<bean id="saveQuoteDAO" class="com.ekthasol.asurance.dao.savequote.SaveQuoteDAO"></bean>
 	<bean id="retrieveQuoteService"
 		class="com.ekthasol.asurance.service.savequote.RetrieveQuoteService"></bean>
-	<bean id="retrieveQuoteDAO"
-		class="com.ekthasol.asurance.dao.savequote.RetrieveQuoteDAO"></bean>
-	</beans>
+	<bean id="retrieveQuoteDAO" class="com.ekthasol.asurance.dao.savequote.RetrieveQuoteDAO"></bean>
+</beans>

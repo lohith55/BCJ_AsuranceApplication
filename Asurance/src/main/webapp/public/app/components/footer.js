@@ -1,3 +1,4 @@
+//Custom directive to create a footer 
 angular.module("components")
     .directive("customFooter", [function () {
         return {

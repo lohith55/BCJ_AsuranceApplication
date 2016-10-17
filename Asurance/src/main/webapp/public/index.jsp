@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="public/css/driverPage.css">
         <link rel="stylesheet" href="public/css/footer.css">
     <link href="public/css/navbar.css" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="public/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
     <script src="public/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="public/bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="public/bower_components/angular/angular.js"></script>
     <script src="public/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script> 
@@ -23,14 +23,10 @@
 <body >
     <div class="container-fluid" ng-controller="mainCtrl">
         <div custom-header></div>
-       
-      <!--   <div id="main" ng-include="templates.tabsUrl"></div> -->
          <div ui-view ></div>
         
     </div>
     <footer custom-footer></footer>
- <!-- <div ng-include="templates.footerUrl" id="footer"></div> -->
-   <!--   <script src= "app/js/index.js"></script> -->
 
    <script src="public/app/modules/modules.js"></script>
    <script src="public/app/app.js"></script>

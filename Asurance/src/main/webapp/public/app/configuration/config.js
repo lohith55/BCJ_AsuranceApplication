@@ -1,3 +1,7 @@
+/**
+ * This is the module to redirect the page according to the url pattern. Angular ui-router 
+ * is implemented to achieve the task
+ */
 (function () {
     angular.module("autoInsurance")
         .config(["$urlRouterProvider", "$stateProvider", function ($urlRouterProvider, $stateProvider) {
@@ -28,24 +32,3 @@
             $state.go("quote");
     }])
 })();
-
-
-
-/*    $stateProvider
-
-    .state('login', {
-        url: '#/login',
-        templateUrl: 'public/app/templates/login.jsp'
-    })
-    .state('register', {
-        url: '#/register',
-        templateUrl: 'public/app/templates/register.jsp'
-    })
-    .state('quote', {
-        url: '#/quote',
-        templateUrl: 'public/app/templates/tabs.jsp'
-    });
-
-
-});
-  angular.bootstrap(document.getElementById("header"), ['routeProvider']);*/

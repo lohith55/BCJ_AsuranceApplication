@@ -47,6 +47,10 @@
       background-color: #f4511e;
       color: #fff;
   }
+  
+  .panel-body {
+      font-size: 25;
+  }
 	</style>
 </head>
 <body>
@@ -55,18 +59,16 @@
 	</nav>
 	<div id="navbar"></div>
 	
-	<%FullDetails fullDetails = (FullDetails)session.getAttribute("full-details"); %>
+	<%FullDetails fullDetails = (FullDetails)session.getAttribute("fullDetails"); %>
 	<div class="container" style="margin-top: 86px;">
 
 		<div id="pricing" class="container-fluid">
-			<div class="text-center">
-				<h2>Your Policy Details</h2>
-			</div>
+		
 			<div class="row slideanim">
 				<div class="col-sm-12 col-xs-12">
 					<div class="panel panel-default text-center">
 						<div class="panel-heading">
-							<h1>Asurance Basic</h1>
+							<h1><b style="color:black">Your Policy Details</b></h1>
 						</div>
 						<div class="panel-body">
 							<p>
@@ -74,7 +76,7 @@
 							</p>
 							<p>
 								<strong>Vehicle Details: </strong> <br>
-								Vin: <%=fullDetails.getVehicle().getVin()%> ; Make: <%=fullDetails.getVehicle().getMake()%>  ; Year: <%=fullDetails.getVehicle().getYear()%>  ; Model: <%=fullDetails.getVehicle().getModel()%> <br>
+								VIN : <%=fullDetails.getVehicle().getVin()%> <br> Make  : <%=fullDetails.getVehicle().getMake()%>  <br> Year  : <%=fullDetails.getVehicle().getYear()%>  <br> Model  : <%=fullDetails.getVehicle().getModel()%> <br>
 								
 							</p>
 							<p>
@@ -83,6 +85,7 @@
 						
 							<p>
 								<strong>Coverage Details: </strong> 
+								<br>Policy Amount: $ <%=fullDetails.getQuote().getQuoteAmount() %>
 								<br>Liability: $ <%=fullDetails.getQuote().getLiability() %>
 								<br>Comprehensive: $ <%=fullDetails.getQuote().getComprehensive() %>
 								<br>Collision: $ <%=fullDetails.getQuote().getCollision() %>
@@ -96,7 +99,7 @@
 						
 						</div>
 						<div class="panel-footer">
-							<button class="btn btn-lg">Go to Profile</button>
+							<button class="btn btn-lg"><a href="/Asurance"><b style="color:black">Go to Your Home</b></a></button>
 						</div>
 					</div>
 				</div>

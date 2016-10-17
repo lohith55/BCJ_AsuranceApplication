@@ -15,8 +15,7 @@ public class SaveQuoteService {
 	SaveQuoteDAO saveQuoteDAO;
 	
 	public boolean saveQuote(Customer customer,Address address,Vehicle vehicle,Quote quote,CustomerInfo customerInfo){
-		boolean status = false;
-		status = saveQuoteDAO.saveQuote(customer, address, vehicle, quote, customerInfo);
-		return status;
+		
+		return saveQuoteDAO.saveQuote(customer, address, vehicle, quote, customerInfo);
 	}
 }

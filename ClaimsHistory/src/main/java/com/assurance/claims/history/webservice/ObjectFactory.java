@@ -43,19 +43,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetVehicleClaimHistoryResponse }
-     * 
-     */
-    public GetVehicleClaimHistoryResponse createGetVehicleClaimHistoryResponse() {
-        return new GetVehicleClaimHistoryResponse();
-    }
-
-    /**
      * Create an instance of {@link VehicleClaimsInfo }
      * 
      */
     public VehicleClaimsInfo createVehicleClaimsInfo() {
         return new VehicleClaimsInfo();
+    }
+
+    /**
+     * Create an instance of {@link GetVehicleClaimHistoryResponse }
+     * 
+     */
+    public GetVehicleClaimHistoryResponse createGetVehicleClaimHistoryResponse() {
+        return new GetVehicleClaimHistoryResponse();
     }
 
     /**

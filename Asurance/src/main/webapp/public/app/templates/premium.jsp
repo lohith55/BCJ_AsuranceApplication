@@ -57,7 +57,8 @@ hr.style15 {
 	<div class="container" style="margin-top: 86px;">
 		<span style="color: #ffb84d; font-size: 35px;"><strong>Here's
 				your quote!</strong></span><br>
-		<%	FullDetails fullDetails = (FullDetails) session.getAttribute("fullDetails");
+		<%
+			FullDetails fullDetails = (FullDetails) session.getAttribute("fullDetails");
 			if (fullDetails != null) {
 		%>
 		<!-- <form method="post" action="saveQuote"> -->
@@ -104,8 +105,7 @@ hr.style15 {
 				<button type="button" class="btn btn-default">Edit</button>
 			</div>
 			<span id="uninsuredSelection" style="margin-left: 40px; color: grey;">No
-				coverage</span> <span
-				id="uninAmt${fullDetails.getQuote().getUnInsured() }"
+				coverage</span> <span id="uninAmt${fullDetails.getQuote().getUnInsured() }"
 				class="uninAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getUnInsured()}</span>
 		</div>
 
@@ -195,8 +195,7 @@ hr.style15 {
 					data-target="#myModal6">Edit</button>
 			</div>
 			<span id="collSelection" style="margin-left: 40px; color: grey;">No
-				Coverage</span> <span
-				id="clAmt${fullDetails.getQuote().getCollision() }"
+				Coverage</span> <span id="clAmt${fullDetails.getQuote().getCollision() }"
 				class="collAmount" style="margin-left: 120px; color: grey;">$${fullDetails.getQuote().getCollision()}</span>
 		</div>
 
@@ -261,8 +260,8 @@ hr.style15 {
 		</div>
 		<!-- </form> -->
 		<%
-				} else {
-			%>
+			} else {
+		%>
 		<!-- <form method="post" action="saveQuote"> -->
 		<label style="font-size: 35px;">Quote for 6 Months</label><br> <label
 			id="qtAmt${quote.getQuoteAmount() }" class="quoteAmount"
@@ -445,7 +444,7 @@ hr.style15 {
 
 		<div class="row">
 			<div class="col-sm-4">
-				<button class="btn btn-md btn-primary" id="backBtn" >Back</button>
+				<button class="btn btn-md btn-primary" id="backBtn">Back</button>
 
 
 			</div>
@@ -459,7 +458,9 @@ hr.style15 {
 
 		</div>
 		<!-- </form> -->
-		<%} %>
+		<%
+			}
+		%>
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" role="dialog">
 			<div class="modal-dialog">
@@ -576,8 +577,9 @@ hr.style15 {
 						<div class="radio">
 							<label><input type="radio" name="optradio"
 								value="No
-									coverage" id="noCoverage">No coverage</label>
-							<span style="margin-left: 240px;" class="uninsuredOption">Current</span>
+									coverage" id="noCoverage">No
+								coverage</label> <span style="margin-left: 240px;"
+								class="uninsuredOption">Current</span>
 						</div>
 
 						<hr class="style15">
@@ -1069,8 +1071,8 @@ hr.style15 {
 									$('#navbar').show();
 								}
 							});
-							$("#backBtn").click(function(){
-								window.location.href="addDriver"
+							$("#backBtn").click(function() {
+								window.location.href = "addDriver"
 							});
 						});
 	</script>

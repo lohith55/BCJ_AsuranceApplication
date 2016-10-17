@@ -10,9 +10,9 @@ public class RetrieveQuoteService {
 	@Autowired
 	RetrieveQuoteDAO retrieveQuoteDAO;
 	
-	public FullDetails retrieveQuote(String quoteID){
-		FullDetails fullDetails = retrieveQuoteDAO.retrieveQuote(quoteID);
-		return fullDetails;
+	public FullDetails retrieveQuote(String quoteID){	
+		
+		return retrieveQuoteDAO.retrieveQuote(quoteID);
 	}
-
 }
+

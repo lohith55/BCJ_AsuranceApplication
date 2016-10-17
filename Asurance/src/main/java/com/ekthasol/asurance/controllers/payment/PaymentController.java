@@ -21,36 +21,39 @@ import com.ekthasol.asurance.service.savequote.SaveQuoteService;
 
 @Controller
 public class PaymentController {
-	
+
 	@Autowired
 	PaymentService paymentService;
-	
+
 	@Autowired
 	SaveQuoteService saveQuoteService;
-	
-	@RequestMapping(value = "/processPayment",method = RequestMethod.POST)
-		public String handlePayment(@ModelAttribute CreditCard creditCard,@ModelAttribute Address address, HttpSession session, HttpServletResponse  response) {
-			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-			System.out.println("in payment controller");
-			Quote quote = (Quote) session.getAttribute("newQuote");
-			creditCard.setBillingAddress(address);
-			System.out.println(quote.getQuoteId());
-			session.setAttribute("paidQuote", quote);
-			boolean result = paymentService.processPayment(creditCard,quote.getQuoteAmount());
-			System.out.println(result);
-			System.out.println(quote.getQuoteId());
-			if(result){
-				Customer customer = (Customer) session.getAttribute("customer");
-				customer.setPolicyNumber(quote.getQuoteId());
-				Vehicle vehicle = (Vehicle) session.getAttribute("selectedVehicle");
-				CustomerInfo customerInfo = (CustomerInfo) session.getAttribute("customerInfo");
-				saveQuoteService.saveQuote(customer, address, vehicle, quote, customerInfo);
-				FullDetails fullDetails = new FullDetails(customer, address, vehicle, customerInfo, quote);
-				session.setAttribute("full-details", fullDetails);
-				return "policyDetails";
-			}else
-				return "paymentfailed";
-	}
- }
-			
+
+	@RequestMapping(value = "/processPayment", method = RequestMethod.POST)
+	public String paymentHandler(@ModelAttribute CreditCard creditCard, @ModelAttribute Address address,
+			HttpSession session, HttpServletResponse response) {
 		
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		System.out.println("in payment controller");
+		Quote quote = (Quote) session.getAttribute("newQuote");
+		creditCard.setBillingAddress(address);
+		session.setAttribute("paidQuote", quote);
+		boolean result = paymentService.processPayment(creditCard, quote.getQuoteAmount());	
+
+		if (result) {
+			FullDetails fulldetails = (FullDetails) session.getAttribute("fullDetails");
+			if (fulldetails != null)
+				return "policyDetails";
+			else {
+			Customer customer = (Customer) session.getAttribute("customer");
+			customer.setPolicyNumber(quote.getQuoteId());
+			Vehicle vehicle = (Vehicle) session.getAttribute("selectedVehicle");
+			CustomerInfo customerInfo = (CustomerInfo) session.getAttribute("customerInfo");
+			saveQuoteService.saveQuote(customer, address, vehicle, quote, customerInfo);
+			FullDetails fullDetails = new FullDetails(customer, address, vehicle, customerInfo, quote);
+			session.setAttribute("fullDetails", fullDetails);
+			return "policyDetails";
+			}
+		} else
+			return "paymentfailed";
+	}
+}

@@ -11,12 +11,8 @@ public class RegistrationService {
 	@Autowired
 	RegistrationDAO registrationDAO;
 	
-	public boolean saveCustomer(Customer customer, Address address) {
-		boolean status = false;
+	public boolean saveCustomer(Customer customer, Address address) {		
 		
-		status = registrationDAO.saveCustomer(customer, address);
-		
-		return status;
+		return registrationDAO.saveCustomer(customer, address);
 	}
-
 }

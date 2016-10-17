@@ -18,11 +18,11 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/saveCustomer</url-pattern>
-		<url-pattern>/getCustomer</url-pattern>
+		<url-pattern>/register</url-pattern>
+		<url-pattern>/login</url-pattern>
 		<url-pattern>/getVehicles</url-pattern>
 		<url-pattern>/logout</url-pattern>
-		<url-pattern>/getQuote</url-pattern>
+		<url-pattern>/generatequote</url-pattern>
 		<url-pattern>/questionnaire</url-pattern>
 		<url-pattern>/addDriver</url-pattern>
 		<url-pattern>/payment</url-pattern>
@@ -30,7 +30,7 @@
 		<url-pattern>/processPayment</url-pattern>
 		<url-pattern>/saveQuote</url-pattern>
 		<url-pattern>/retrieveQuote</url-pattern>
-		<url-pattern>/saved</url-pattern>
+		<url-pattern>/quotesaved</url-pattern>
 		<url-pattern>/profile</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -1,6 +1,11 @@
+//Module for handling form data on register page and quote generation page
 angular.module("components").controller(
 		'startPageCtrl',
-		function($scope, $http, $state) {
+		function($scope, $http) {
+			
+			/**when user click on generate quote button on the get quote page all the form data
+			 * will be redirected to this quoteForm function for validation
+			**/
 			$scope.quoteForm = function(model) {
 				$scope.registerPage.submitted = true;
 				if ($scope.registerPage.$valid) {
@@ -18,20 +23,16 @@ angular.module("components").controller(
 					}
 				}
 			};
-			$scope.noThanks = function(){
-				$state.go("register");
-			};
+		
 
+			/**when user click on register button on the register page all the form data
+			 * will be redirected to this register function for validation
+			**/
 			$scope.register = function(model) {
 		
 				$scope.registerPage.submitted = true;
 				$scope.registerPage.isPasswordMatch = false;
-			
-				if ($scope.registerPage.$valid
-						&& model.password == model.passwordConfirmation) {
-					$scope.registerPage.isPasswordMatch = true;
-					
-					var formData = {
+				var formData = {
 						"firstName": model.firstName,
 						"lastName": model.lastName,
 						"dateOfBirth": model.dateOfBirth,
@@ -42,15 +43,29 @@ angular.module("components").controller(
 						"zip": model.zip,
 						"password": model.password
 					};
-					
-		
-					console.log(formData);
-					
-					
 				
-					
+				var today = new Date();
+				var birthDate = new Date(model.dateOfBirth);
+				var year = today.getFullYear() - birthDate.getFullYear();
+				var month = today.getMonth() - birthDate.getMonth();
+				var day = today.getDate() - birthDate.getDate();
+				$scope.under18 = false;
+				if(year < 18 ){
+					console.log("age is less than 18");
+					$scope.under18 = true;
+					$scope.underage = {"color": "red", "font-size": "20px"}
 				}
-
+				if(year == 18 && month<=0 && day<=0  ){
+					console.log("age is less than 18");
+					$scope.under18 = true;
+					$scope.underage = {"color": "red", "font-size": "20px"}
+				}
+			
+				if ($scope.registerPage.$valid && !$scope.under18) {
+					
+					console.log(formData);
+				}
+				
 				else {
 					console.log('Errors in form data');
 					$scope.errorField = {
@@ -61,7 +76,6 @@ angular.module("components").controller(
 							"color" : "red"
 
 						}
-
 				}
 			};
 		});

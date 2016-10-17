@@ -66,7 +66,6 @@ public class QuoteGenerationController {
 	public String getQuestions(@ModelAttribute Vehicle selectedVehicle, HttpSession session) {
 
 		session.setAttribute("selectedVehicle", selectedVehicle);
-		System.out.println(selectedVehicle.toString());
 		return "questionaire";
 	}
 
@@ -78,7 +77,6 @@ public class QuoteGenerationController {
 		for (String license : licenseList)
 			System.out.println(license);
 		session.setAttribute("customerInfo", customerInfo);
-		System.out.println(customerInfo.toString());
 		session.setAttribute("failMessage", "");
 		return "driverInfo";
 	}
@@ -88,11 +86,10 @@ public class QuoteGenerationController {
 		return "driverInfo";
 	}
 
-	@RequestMapping(value = "/getQuote", method = RequestMethod.POST)
+	@RequestMapping(value = "/generatequote", method = RequestMethod.POST)
 	public String goToPremium(HttpSession session) {
 
 		CustomerInfo custInfo = (CustomerInfo) session.getAttribute("customerInfo");
-		System.out.println(custInfo.toString());
 		Vehicle vehicleInfo = (Vehicle) session.getAttribute("selectedVehicle");
 
 		Quote inputQuote = new Quote();
@@ -114,7 +111,7 @@ public class QuoteGenerationController {
 		}
 	}
 
-	@RequestMapping(value = "/getQuote", method = RequestMethod.GET)
+	@RequestMapping(value = "/generatequote", method = RequestMethod.GET)
 	public String redirectToPremium(@ModelAttribute CustomerInfo customerInfo, HttpSession session) {
 		
 		return "premium";
@@ -122,25 +119,15 @@ public class QuoteGenerationController {
 
 	@RequestMapping(value = "/payment", method = RequestMethod.POST)
 	public String verifyCreditCard(@RequestBody Quote quote, HttpSession session) {
-
 		
-			System.out.println(quote.toString());
 			session.setAttribute("newQuote", quote);
 			return "payments";
 		
 	}
 
 	@RequestMapping(value = "/payments", method = RequestMethod.GET)
-	public String goToPayments(HttpSession session) {
-
-		String loggedIn = (String) session.getAttribute("loggedIn");
-		session.setAttribute("notLoggedIn", "true");
-		if ("true".equals(loggedIn)) {
-		return "payments";
-		} else
-		{
-			return "redirect:/#/login";
-		}
+	public String goToPayments(HttpSession session) {	
+			return "payments";	
 	}
 
 }

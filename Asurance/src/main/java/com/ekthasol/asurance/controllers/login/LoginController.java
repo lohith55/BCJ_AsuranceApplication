@@ -25,8 +25,8 @@ public class LoginController {
 	@Autowired
 	RetrieveQuoteService retrieveQuoteService;
 
-	@RequestMapping(value = "/getCustomer", method = RequestMethod.POST)
-	public String getCustomer(@ModelAttribute Customer customer, HttpSession session,
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String customerLogin(@ModelAttribute Customer customer, HttpSession session,
 			HttpServletResponse response) {
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		Customer cust = null;
@@ -61,7 +61,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String redirect(SessionStatus status, HttpServletRequest request, HttpServletResponse response) {
+	public String logout(SessionStatus status, HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		System.out.println("inside logout " + session.getId());

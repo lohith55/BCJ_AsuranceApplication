@@ -52,6 +52,7 @@ public class VehicleDAO {
 
 			try {
 				addrId = (int) query.list().get(0);
+				System.out.println(addrId);
 			} catch (java.lang.IndexOutOfBoundsException e) {
 				System.out.println("Address Not Matched With Our Records");
 				return null;

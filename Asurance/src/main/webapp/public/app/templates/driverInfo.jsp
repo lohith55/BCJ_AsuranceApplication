@@ -82,7 +82,7 @@ li {
 				</div>
 			</div>
 		<%}else{ %>
-		<form method="post" action="getQuote">
+		<form method="post" action="generatequote">
 			<div id="wrongCredential" style="color: red; font-size: 20px;">${failMessage }</div>
 			<div class="row">
 				<div class="col-sm-6">

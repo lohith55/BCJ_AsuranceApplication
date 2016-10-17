@@ -1,16 +1,11 @@
+/**
+ * Here in this module "mainCtrl" controller is used to determine the current 
+ * page location so that active link on the tabs can be achieved 
+ */
 (function () {
     "use strict";
     angular.module("autoInsurance")
-        .controller("mainCtrl", ["$scope", "$rootScope", "$location", function ($scope, $rootScope,$location) {
-            var baseUrl = "public/app/templates/";
-            $scope.templates = {
-                navbarUrl: baseUrl + "navbar.jsp",
-                footerUrl: baseUrl + "footer.jsp",
-                registerUrl: baseUrl + "register.jsp",
-                loginUrl: baseUrl + "login.jsp",
-                tabsUrl: baseUrl + "tabs.jsp",
-                policyUrl: baseUrl + "policyNumber.jsp"
-            };
+        .controller("mainCtrl", ["$scope",  "$location", function ($scope,$location) {
             $scope.isActive =  function (viewLocation) { 
             return viewLocation === $location.path();
             };

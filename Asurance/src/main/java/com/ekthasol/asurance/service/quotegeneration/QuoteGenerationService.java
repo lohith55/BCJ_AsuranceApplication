@@ -20,9 +20,6 @@ public class QuoteGenerationService {
 		Gson gson = new Gson();
 		String jsonInString = gson.toJson(address);
 		String output = jsonInString;
-		System.out.println("Inside UI Client" + output);
-
-		// String output = null;
 
 		try {
 
@@ -41,8 +38,6 @@ public class QuoteGenerationService {
 			}
 
 			BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-
-			System.out.println("Output from Server .... \n");
 			String outputtoUI;
 			while ((outputtoUI = br.readLine()) != null) {
 				return outputtoUI;
@@ -65,18 +60,10 @@ public class QuoteGenerationService {
 	
 	public Quote getQuoteAmount(Quote quote){
 		
-//		 final String uri = "http://localhost:8080/QuoteGenerationApp/getQuote";
+//		
 		 	Gson gson = new Gson();
 			String jsonInString = gson.toJson(quote);
-/*		    RestTemplate restTemplate = new RestTemplate();
-		    System.out.println("Input JSOn" + jsonInString);
-		  
-		    HttpHeaders headers = new HttpHeaders();
-		    headers.setContentType(MediaType.APPLICATION_JSON);
 
-		    HttpEntity<String> entity = new HttpEntity<String>(jsonInString,headers);
-		    Quote resultQuote = restTemplate.postForObject( uri, entity, Quote.class);
-		    System.out.println(resultQuote);*/
 			
 			String output = jsonInString;
 			try {
@@ -96,8 +83,6 @@ public class QuoteGenerationService {
 				}
 
 				BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-
-				System.out.println("Output from Server .... \n");
 				String outputtoUI;
 				Quote result = null;
 				while ((outputtoUI = br.readLine()) != null) {
@@ -126,8 +111,6 @@ public class QuoteGenerationService {
 				e.printStackTrace();
 
 			}
-			
-//		return resultQuote;
 		return null;
 	}
 

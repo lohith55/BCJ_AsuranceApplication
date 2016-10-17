@@ -1,3 +1,8 @@
+
+/**
+ * This functionality is implemented to calculate the quote price based on 
+ * user selection for different vehicle coverage
+ */
 $(document).ready(function() {
 
  var quoteAmt = parseFloat($(".quoteAmount").attr("id").substring(5));
@@ -13,8 +18,10 @@ $(document).ready(function() {
  
  
 console.log(quoteAmt);
+
 /**
-handling liability
+	When user clicks on the liability option it will manipulate the DOM and 
+	calculate the appropriate price for liability
 **/
 $("#liability").click(function(){
 		 var radioValue = $("input[type='radio']:checked").val();
@@ -51,7 +58,8 @@ $("#liability").click(function(){
 });
 
 /**
-handling uninsured motorist 
+	When user clicks on the uninsured motorist option it will manipulate the DOM and 
+	calculate the appropriate price for uninsured motorist
 **/
 $("#uninsuredMotorist").click(function(){
 		 var radioValue = $("input[type='radio']:checked").val();
@@ -89,7 +97,8 @@ $("#uninsuredMotorist").click(function(){
 });
 
 /**
-	handling underinsured motorist BI
+	When user clicks on the uninsured motorist BI option it will manipulate the DOM and 
+	calculate the appropriate price for uninsured motorist BI
 **/
 
 $("#underInsuredBI").click(function(){
@@ -127,7 +136,8 @@ $("#underInsuredBI").click(function(){
 });
 
 /**
-	handling uninsured motorist PD 
+	When user clicks on the uninsured motorist PD option it will manipulate the DOM and 
+	calculate the appropriate price for uninsured motorist PD
 **/
 
 $("#unInsuredMotoristPD").click(function(){
@@ -165,7 +175,8 @@ $("#unInsuredMotoristPD").click(function(){
 });
 
 /**
-	handling uninsured personal injury plan
+	When user clicks on the personal injury plan option it will manipulate the DOM and 
+	calculate the appropriate price for personal injury plan
 **/
 
 $("#personalInjury").click(function(){
@@ -202,7 +213,11 @@ $("#personalInjury").click(function(){
 		
 });
 
-//Code for Comprehensive
+/**
+When user clicks on the comprhensive plan option it will manipulate the DOM and 
+calculate the appropriate price for comphrensive
+**/
+
 $("#comprehensive").click(function(){
 	 var radioValue = $("input[type='radio']:checked").val();
 	 console.log(radioValue);
@@ -239,7 +254,11 @@ $("#comprehensive").click(function(){
 	
 });
 
-//Code for Collision
+/**
+When user clicks on the collision plan option it will manipulate the DOM and 
+calculate the appropriate price for collision
+**/
+
 $("#collision").click(function(){
 	 var radioValue = $("input[type='radio']:checked").val();
 	 console.log(radioValue);
@@ -276,7 +295,10 @@ $("#collision").click(function(){
 	
 });
 
-//Code for Rental
+/**
+When user clicks on the rental plan option it will manipulate the DOM and 
+calculate the appropriate price for rental
+**/
 $("#rental").click(function(){
 	 var radioValue = $("input[type='radio']:checked").val();
 	 console.log(radioValue);
@@ -313,7 +335,11 @@ $("#rental").click(function(){
 	
 });
 
-//Code for RoadSide
+/**
+When user clicks on the roadside plan option it will manipulate the DOM and 
+calculate the appropriate price for roadside
+**/
+
 $("#roadside").click(function(){
 	 var radioValue = $("input[type='radio']:checked").val();
 	 console.log(radioValue);
@@ -349,6 +375,11 @@ $("#roadside").click(function(){
 	}
 	
 });
+
+/**
+Implementing ajax to submit the form data when user clicks on continue to buy. 
+On success it will send to the payment page 
+**/
 
 $(".submit").click(function(e){
 	e.preventDefault();
@@ -389,6 +420,12 @@ $(".submit").click(function(e){
 		        });
 });
 
+/**
+Implementing ajax to save the form data when user clicks on save and exit. 
+On success it will send to the details page where it will display the quote information
+so that user can save that quote information and retrieve later 
+**/
+
 $(".save").click(function(e){
 	e.preventDefault();
 	var quoteID = $(".quoteId").text();
@@ -423,22 +460,10 @@ $(".save").click(function(e){
 		            contentType: 'application/json; charset=utf-8',
 		            success: function(data){
 		            	console.log(data);
-		            	window.location.href = "saved";
+		            	window.location.href = "quotesaved";
 		            }
 		        });
 });
 	
-	/*$("#liabilityInput").attr("value", liability);
-	$("#unInsuredInput").attr("value", uninsured);
-	$("#underInsuredInput").attr("value", underInsured);
-	$("#unInsuredPDInput").attr("value", uninsuredPD);
-	$("#injuryProtectionInput").attr("value", injuryProtection);
-	$("#comprehensiveInput").attr("value", comphrensive);
-	$("#collisionInput").attr("value", collision);
-	$("#rentalInput").attr("value", rental);
-	$("#roadSideInput").attr("value", roadside);
-*/
-
-
 
 });
