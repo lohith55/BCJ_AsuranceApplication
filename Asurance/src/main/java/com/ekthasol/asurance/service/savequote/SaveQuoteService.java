@@ -18,4 +18,8 @@ public class SaveQuoteService {
 		
 		return saveQuoteDAO.saveQuote(customer, address, vehicle, quote, customerInfo);
 	}
+	
+	public boolean updateCustomer(Customer customer){
+		return saveQuoteDAO.updateCustomer(customer);
+	}
 }

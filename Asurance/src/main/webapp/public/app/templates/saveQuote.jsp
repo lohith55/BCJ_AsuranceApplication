@@ -11,12 +11,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="../../css/footer.css" rel="stylesheet">
-<script src="../../bower_components/angular/angular.js"></script>
+
 <title>Details Saved</title>
 </head>
-<body ng-app="components">
-	<div navbar-header></div>
+<body>
+<div id="navbar"></div>
 	<div class="container-fluid"
 		style="margin-top: 70px; margin-bottom: 700px;">
 		<div class="col-sm-8" style="padding-top: 20px;">
@@ -27,10 +26,13 @@
 			<a href="/Asurance">Click here to go to Home Page</a>
 		</div>
 	</div>
-	<footer custom-footer-2></footer>
-	<script src="../../app/modules/modules.js"></script>
-	<script src="../components/navbar-for-quote.js"></script>
-	<script src="../components/footer.js"></script>
-	<script src="../components/customLogo.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		 $("#navbar").load('/Asurance/public/app/templates/navbar-for-quote.html');
+  
+});
+	</script>
+	
 </body>
 </html>

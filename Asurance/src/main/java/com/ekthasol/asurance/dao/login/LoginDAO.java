@@ -21,10 +21,15 @@ public class LoginDAO {
 			Query query = session.createQuery("from Customer where EMAIL= :email and PASSWORD= :password");
 			query.setParameter("email", email);
 			query.setParameter("password", password);
-			customer = (Customer) query.list().get(0);
+			
+			//Customer is being retrieved based on the email id and password
+			customer = (Customer) query.list().get(0);//Customer is being retrieved based on the email id and password
+			
 		} catch (HibernateException e) {
 			e.printStackTrace();
-		} 
+		}
+		
+		//Either retrieved customer or Null Customer will be sent back to the service layer
 		return customer;
 	}
 }

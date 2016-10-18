@@ -35,15 +35,14 @@ li {
 			</div>
 		</div>
 		<hr class="colorgraph">
-		<%FullDetails retrievedQuote = (FullDetails) session.getAttribute("retrievedQuote");
+		<%FullDetails retrievedQuote = (FullDetails) session.getAttribute("fullDetails");
 			if (retrievedQuote != null) {
 		%>
-			<div id="wrongCredential" style="color: red; font-size: 20px;">${failMessage }</div>
 			<div class="row">
 				<div class="col-sm-6">
 					<span id="selected" class="glyphicon glyphicon-ok"></span><small>PolicyHolder</small><br>
-					<label style="font-size: 20px;">${retrievedQuote.getCustomer().getFirstName() }
-						${retrievedQuote.getCustomer().getLastName() }</label>
+					<label style="font-size: 20px;"><%=retrievedQuote.getCustomer().getFirstName() %>
+						${fullDetails.getCustomer().getLastName() }</label>
 
 				</div>
 				<div class="col-sm-6">
@@ -153,10 +152,10 @@ li {
 								}
 							});
 							$("#backBtn").click(function(){
-								window.location.href="addDriver"
+								window.location.href="questionnaire"
 							});
 							$("#continue").click(function(){
-								window.location.href="getQuote"
+								window.location.href="generatequote"
 							});
 						});
 	</script>

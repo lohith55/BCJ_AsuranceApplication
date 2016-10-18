@@ -29,14 +29,19 @@ public class QuoteGenerationController {
 
 	List<String> licenseList = new ArrayList<String>();
 
+	
 	@RequestMapping(value = "/getVehicles", method = RequestMethod.POST)
 	public String getVehicles(@ModelAttribute Customer customer, @ModelAttribute Address address, HttpSession session) {
+		
 		String output = quoteGenerationService.getVehiclesList(address);
 		Customer cust = (Customer) session.getAttribute("customer");
+		
 		if (cust != null)
 			session.setAttribute("customer", cust);
+		
 		else
 			session.setAttribute("customer", customer);
+		
 		session.setAttribute("address", address);
 		if (output != null) {
 			List<Vehicle> vehicleList = null;
@@ -62,6 +67,7 @@ public class QuoteGenerationController {
 		}
 	}
 
+	
 	@RequestMapping(value = "/questionnaire", method = RequestMethod.POST)
 	public String getQuestions(@ModelAttribute Vehicle selectedVehicle, HttpSession session) {
 
@@ -69,6 +75,14 @@ public class QuoteGenerationController {
 		return "questionaire";
 	}
 
+	
+	@RequestMapping(value = "/questionnaire", method = RequestMethod.GET)
+	public String goToQuestionnaire(@ModelAttribute Vehicle selectedVehicle, HttpSession session) {
+
+		return "questionaire";
+	}
+
+	
 	@RequestMapping(value = "/addDriver", method = RequestMethod.POST)
 	public String addDriver(@ModelAttribute CustomerInfo customerInfo, HttpSession session) {
 
@@ -81,11 +95,13 @@ public class QuoteGenerationController {
 		return "driverInfo";
 	}
 
+	
 	@RequestMapping(value = "/addDriver", method = RequestMethod.GET)
 	public String redirectToDriverInfo(@ModelAttribute CustomerInfo customerInfo, HttpSession session) {
 		return "driverInfo";
 	}
 
+	
 	@RequestMapping(value = "/generatequote", method = RequestMethod.POST)
 	public String goToPremium(HttpSession session) {
 
@@ -111,12 +127,14 @@ public class QuoteGenerationController {
 		}
 	}
 
+	
 	@RequestMapping(value = "/generatequote", method = RequestMethod.GET)
 	public String redirectToPremium(@ModelAttribute CustomerInfo customerInfo, HttpSession session) {
 		
 		return "premium";
 	}
 
+	
 	@RequestMapping(value = "/payment", method = RequestMethod.POST)
 	public String verifyCreditCard(@RequestBody Quote quote, HttpSession session) {
 		
@@ -125,6 +143,7 @@ public class QuoteGenerationController {
 		
 	}
 
+	
 	@RequestMapping(value = "/payments", method = RequestMethod.GET)
 	public String goToPayments(HttpSession session) {	
 			return "payments";	
