@@ -148,7 +148,7 @@ margin-top:20px;
 							<%
 								if (policyNumber != null) {
 							%><label>Policy#:</label> <label><b><%=customer.getPolicyNumber()%></b></label><br>							
-							<button id="viewPolicy" class="btn btn-lg btn-danger">View Policy</button>
+							<button id="viewPolicy" class="btn btn-lg btn-danger">View/Hide Policy</button>
 							<div id="showPolicy">
 							<div class="container" style="margin-top: 86px;">
 
@@ -256,7 +256,7 @@ margin-top:20px;
 	$(document).ready(function() {
 		$("#showPolicy").hide();
 		$("#viewPolicy").click(function(){
-			$("#showPolicy").show();	
+			$("#showPolicy").toggle();	
 		})
 	
 	})

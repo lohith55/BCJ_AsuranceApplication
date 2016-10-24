@@ -31,7 +31,7 @@ angular.module("components").controller(
 			$scope.register = function(model) {
 		
 				$scope.registerPage.submitted = true;
-				$scope.registerPage.isPasswordMatch = false;
+				//$scope.registerPage.isPasswordMatch = false;
 				var formData = {
 						"firstName": model.firstName,
 						"lastName": model.lastName,
@@ -51,19 +51,30 @@ angular.module("components").controller(
 				var day = today.getDate() - birthDate.getDate();
 				$scope.under18 = false;
 				if(year < 18 ){
-					console.log("age is less than 18");
+					//startPageCtrl.$setValidity("underAge", true);
 					$scope.under18 = true;
+					console.log("age is less than 18");
 					$scope.underage = {"color": "red", "font-size": "20px"}
 				}
 				if(year == 18 && month<=0 && day<=0  ){
-					console.log("age is less than 18");
 					$scope.under18 = true;
+					//startPageCtrl.$setValidity("underAge", true);
+					console.log("age is less than 18");
 					$scope.underage = {"color": "red", "font-size": "20px"}
 				}
 			
 				if ($scope.registerPage.$valid && !$scope.under18) {
 					
 					console.log(formData);
+					$http({
+					    method: "POST",
+					    url: "register",
+					    data: JSON.stringify(formData),
+					    contentType: 'application/json; charset=utf-8'
+					}).success(function(data){
+		            	console.log(data);
+		            	window.location.href = "registered";
+		            });
 				}
 				
 				else {

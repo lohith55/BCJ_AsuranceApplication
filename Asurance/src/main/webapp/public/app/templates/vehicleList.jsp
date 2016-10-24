@@ -13,6 +13,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
 <title>Vehicle</title>
 <style>
 li {
@@ -21,8 +25,10 @@ li {
 }
 </style>
 </head>
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top" id="scrollNabar"><h2 style="text-align:center; color:red">Asurance</h2></nav>
+<body >
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="scrollNabar">
+		<h2 style="text-align: center; color: red">Asurance</h2>
+	</nav>
 	<div id="navbar"></div>
 	<div class="container-fluid text-center" style="margin-top: 86px;">
 		<div class="row">
@@ -35,23 +41,35 @@ li {
 			<c:forEach items="${vehicleList}" var="vehicleList">
 				<hr class="colorgraph">
 				<div class="row" id="formDiv">
+
 					<div class="col-sm-6">
 						<span id="selected${vehicleList.getVin() }"
 							class="glyphicon glyphicon-ok selected"></span> <input
 							type="text" name="vin" id="vin${vehicleList.getVin() }"
 							value="${vehicleList.getVin() }"
-							style="border: none; visibility: hidden;"><br> <label>Year:</label><input
-							type="text" name="year" id="year${vehicleList.getVin() }"
-							value="${vehicleList.getYear() }" style="border: none;"><br>
-						<label>Make:</label><input type="text" name="make"
-							id="make${vehicleList.getVin() }"
-							value="${vehicleList.getMake() }" style="border: none;"><br>
-						<label>Model:</label><input type="text" name="model"
-							id="model${vehicleList.getVin() }"
-							value="${vehicleList.getModel() }" style="border: none;"><br>
-						<input type="text" name="isSelected"
-							id="${vehicleList.getVin() }selected" value="${vehicleList.getIsSelected() }"
-							style="border: none; visibility: hidden;">
+							style="border: none; visibility: hidden;"><br>
+						
+						
+						<div class="col-sm-4" style="margin-left: 10px ;padding:0px ;margin-left: 150px " >
+							<label>Year:</label><input type="text" name="year"
+								id="year${vehicleList.getVin() }"
+								value="${vehicleList.getYear() }" style="border: none;">
+							<br> <label>Make:</label><input class="make" type="text" name="make"
+								id="make${vehicleList.getVin() }"
+								value="${vehicleList.getMake() }" style="border: none;"><br>
+							<label>Model:</label><input type="text" name="model"
+								id="model${vehicleList.getVin() }"
+								value="${vehicleList.getModel() }" style="border: none;"><br>
+							<input type="text" name="isSelected"
+								id="${vehicleList.getVin() }selected"
+								value="${vehicleList.getIsSelected() }"
+								style="border: none; visibility: hidden;">
+						</div>
+						<div class="col-sm-2" style="padding:0px ;">
+							<img id=carImage  style="height: 110px; width: 200px; margin:0px" />
+						</div>
+						
+
 					</div>
 					<div class="col-sm-6">
 						<button type="button" class="btn btn-lg btn-default addbtn"
@@ -79,9 +97,10 @@ li {
 					<a class="btn btn-md btn-primary" href="/Asurance">Cancel</a>
 				</div>
 				<div class="col-sm-4">
-					<input  type="submit" class="btn btn-md btn-primary" value="Save & Continue" id="submit">
+					<input type="submit" class="btn btn-md btn-primary"
+						value="Save & Continue" id="submit">
 				</div>
-				
+
 			</div>
 		</form>
 	</div>
@@ -159,10 +178,53 @@ li {
 				    	$('#navbar').show();
 				    }
 				});
-					
-		
+			 
+			 var car = $(".make").val();
+			  
+			 if(car == 'Honda'){
+				 document.getElementById('carImage').src = "http://pngimg.com/upload/honda_PNG10324.png";
+			  }
+			 else if(car == 'Toyota'){
+				 document.getElementById('carImage').src = "http://pngimg.com/upload/small/toyota_PNG1912.png";
+			 }		 
+			 else if(car == 'Porche'){
+				 document.getElementById('carImage').src = "http://pngimg.com/upload/small/porsche_PNG10624.png";
+			 }		 
+			 else if(car == 'BMW'){
+				 document.getElementById('carImage').src = "http://pngimg.com/upload/bmw_PNG1710.png";
+			 }		 
+			 else if(car == 'Ford'){
+				 document.getElementById('carImage').src = "http://images.nadaguides.com/Models/640x480/2015-Ford-Mustang-V6.png";
+			 }
+			 
+			 else if(car == 'Chervole'){
+				 document.getElementById('carImage').src = "http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-Yellow-Chevrolet-Camaro-1LE-Car-PNG-Image.png"}
+			 
+			 else
+				 document.getElementById('carImage').src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR-ghh8Xna8s-oxduso3-4O2WbjAh8CBeN7suY4PKfTASbAWN8k";							
 		});
+		
+ 		
+		
+		
 	</script>
+	<script type="text/javascript">
+	
+	
+   document.onload = function(){
+	  var car = $(".make").val(); 
+	  console.log(car);
+	  if(car == Honda){
+		  document.getElementById('someImage').src="http://pngimg.com/upload/honda_PNG10324.png";
+	  }
+       
+   };
+
+	</script>
+	
+
+
+
 
 </body>
 </html>

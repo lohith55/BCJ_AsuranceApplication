@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="public/css/driverPage.css">
         <link rel="stylesheet" href="public/css/footer.css">
     <link href="public/css/navbar.css" rel="stylesheet">
-    <link rel="stylesheet" href="public/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="public/bower_components/jquery-ui/themes/base/minified/jquery-ui.min.css">
     <script src="public/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="public/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="public/bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
     <script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="public/bower_components/angular/angular.js"></script>
     <script src="public/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script> 
@@ -34,7 +34,6 @@
     <script src= "public/app/components/customHeader.js"></script>
     <script src= "public/app/components/customLogo.js"></script>
     <script src= "public/app/components/startPage.js"></script>
-    <script src= "public/app/components/driverPage.js"></script>
      <script src= "public/app/components/footer.js"></script>
     <script src= "public/app/components/stateController.js"></script>
     <script src= "public/app/components/formController.js"></script>

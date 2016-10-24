@@ -10,17 +10,15 @@
 				<%if(failure != null) {%><div id="wrongCredential" style="color:red"><%=failure %></div>
 					<%} session.invalidate();%>
 			<form role="form" name="registerPage" ng-controller="startPageCtrl"
-				   action="register" method="post" >
+				    novalidate >
 				 <span
 								class="text-error"
 								ng-show="registerPage.submitted && registerPage.$invalid"
 								ng-style="errorField2">* Required Fields</span>
-								<br><br>
-				
-				<!-- <div class="form-group">
-					<input type="text" name="policyNumber" ng-model="model.policyNumber" id="policy_number" class="form-control input-lg" placeholder="Policy Number" tabindex="3" required>
-					<span class="text-error" ng-show="registerPage.submitted && registerPage.policyNumber.$invalid" ng-style="errorField">Policy Number is Required</span>
-				</div> -->
+								<br>
+								<span ng-show="under18"
+						ng-style="underage">must be 18 years and older</span>
+							<br>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-6">
 
