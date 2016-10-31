@@ -7,7 +7,7 @@
 
  <mvc:annotation-driven/>
  <context:annotation-config />
- <import resource="contextservlet.xml"/>
+ <import resource="hibernate.cfg.xml"/>
  <import resource="applicationcontext.xml"/>
 <context:component-scan base-package="com.dmv.publicrecords.controller" />
 

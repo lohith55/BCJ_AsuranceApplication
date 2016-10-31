@@ -17,8 +17,9 @@ import javax.ws.rs.core.Response;
 
 
 /**
- * @author Nikshitha Nagelly This class is exposed as web service which
- *         internally gets drivers history based on given license Number
+ * @author Nikshitha Nagelly 
+ * This class is exposed as web service which
+ * internally gets drivers history based on given license Number
  */
 @Path("/getDriverInfo")
 public class DriverInfoService {
@@ -29,7 +30,6 @@ public class DriverInfoService {
 	@GET
 	@Path("{param}")
 	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.TEXT_PLAIN)
 	public Response getDriversHistory(@PathParam("param") String licenseNum) {
 		
 		try {
