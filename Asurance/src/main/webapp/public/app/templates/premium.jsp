@@ -444,7 +444,8 @@ hr.style15 {
 
 		<div class="row">
 			<div class="col-sm-4">
-				<button class="btn btn-md btn-primary" onClick="history.back()">Back</button>
+				<button class="btn btn-md btn-primary" id="backBtn">Back</button>
+
 
 			</div>
 			<div class="col-sm-4">

@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,11 +20,9 @@ public class RegistrationController {
 	@Autowired
 	RegistrationService registrationService;
 
-
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public String registerCustomer(@RequestBody Customer customer, @ModelAttribute Address address,HttpSession session, HttpServletResponse  response) {
+	public String registerCustomer(@ModelAttribute Customer customer, @ModelAttribute Address address,HttpSession session, HttpServletResponse  response) {
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-
 
 		boolean status = registrationService.saveCustomer(customer, address);
 
@@ -43,10 +40,5 @@ public class RegistrationController {
 			return "redirect:/#/register";
 		}
 	
-	}
-	@RequestMapping(value = "/registered", method = RequestMethod.GET)
-	public String goToPayments() {
-
-		return "success";
 	}
 }

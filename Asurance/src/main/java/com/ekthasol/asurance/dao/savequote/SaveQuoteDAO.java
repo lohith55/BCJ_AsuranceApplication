@@ -24,7 +24,13 @@ public class SaveQuoteDAO {
 		Session session = sessionFactory.openSession();
 		try {
 			
-			session.saveOrUpdate(customer);
+			if(customer.getEmail() != null){
+				customer.setPolicyNumber(quote.getQuoteId());
+				session.update(customer);
+			}
+			else{
+				session.save(customer);
+			}
 			session.saveOrUpdate(address);
 			session.saveOrUpdate(quote);
 			session.saveOrUpdate(customerInfo);
@@ -33,19 +39,6 @@ public class SaveQuoteDAO {
 			fulldetailID = (Integer) session.save(fullDetails);
 			session.flush();
 			if(fulldetailID > 0)
-				return true;
-		} catch (HibernateException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-	
-	public boolean updateCustomer(Customer customer){
-		Session session = sessionFactory.openSession();
-		try {
-			
-				session.update(customer);
-				session.flush();
 				return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();

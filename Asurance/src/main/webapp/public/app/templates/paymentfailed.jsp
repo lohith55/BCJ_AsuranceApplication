@@ -10,11 +10,13 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link href="../../css/footer.css" rel="stylesheet">
+<script src="../../bower_components/angular/angular.js"></script>
 <title>Payment Failed</title>
 </head>
-<body>
-<div id="navbar"></div>
+<body ng-app="components">
+<div navbar-header></div>
+	
 <div class="container-fluid"
 		style="margin-top: 70px; margin-bottom: 600px;">
 		<div class="col-sm-8" >
@@ -30,12 +32,11 @@
 </div>
 
 </div>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		
-		 $("#navbar").load('/Asurance/public/app/templates/navbar-for-quote.html');
-  
-});
-	</script>
+
+<footer custom-footer-2></footer>
+	<script src="../../app/modules/modules.js"></script>
+	<script src="../components/navbar-for-quote.js"></script>
+	<script src="../components/footer.js"></script>
+	<script src="../components/customLogo.js"></script>
 </body>
 </html>

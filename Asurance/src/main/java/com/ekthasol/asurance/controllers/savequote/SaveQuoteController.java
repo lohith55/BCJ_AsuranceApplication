@@ -25,10 +25,10 @@ public class SaveQuoteController {
 	SaveQuoteService saveQuoteService;
 
 	@Autowired
-	RetrieveQuoteService retrieveQuoteService;
-
+	RetrieveQuoteService retrieveQuoteService; 
+	
 	@RequestMapping(value = "/saveQuote", method = RequestMethod.POST)
-	public String saveQuote(@RequestBody Quote quote, HttpSession session) {
+	public String saveQuote(@RequestBody Quote quote,HttpSession session) {
 
 		Customer customer = (Customer) session.getAttribute("customer");
 		Address address = (Address) session.getAttribute("address");
@@ -36,31 +36,20 @@ public class SaveQuoteController {
 		CustomerInfo customerInfo = (CustomerInfo) session.getAttribute("customerInfo");
 		session.setAttribute("newQuote", quote);
 		boolean status = saveQuoteService.saveQuote(customer, address, vehicle, quote, customerInfo);
-		if (status) {
+		if(status){
 			return "saveQuote";
-		} else
+		}else
 			return "failure";
 	}
-
+	
 	@RequestMapping(value = "/retrieveQuote", method = RequestMethod.POST)
-	public String retrieveQuote(@ModelAttribute Quote quote, HttpSession session) {
+	public String retrieveQuote(@ModelAttribute Quote quote,HttpSession session) {
 
 		FullDetails fullDetails = retrieveQuoteService.retrieveQuote(quote.getQuoteId());
-		String errorResponse = null;
-
-		if (fullDetails.getCustomer().getPolicyNumber() != null) {
-
-			errorResponse = "quoteError";
-		}
-
-		else {
-
-			session.setAttribute("fullDetails", fullDetails);
-			return "premium";
-		}
-		return errorResponse;
+		session.setAttribute("fullDetails", fullDetails);
+		return "premium";
 	}
-
+	
 	@RequestMapping(value = "/quotesaved", method = RequestMethod.GET)
 	public String goToPayments() {
 

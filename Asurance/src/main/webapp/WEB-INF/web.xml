@@ -32,6 +32,5 @@
 		<url-pattern>/retrieveQuote</url-pattern>
 		<url-pattern>/quotesaved</url-pattern>
 		<url-pattern>/profile</url-pattern>
-		<url-pattern>/registered</url-pattern>
 	</servlet-mapping>
 </web-app>
